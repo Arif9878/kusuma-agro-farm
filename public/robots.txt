@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kusuma-agro-farm.arifboyz16.workers.dev/sitemap.xml

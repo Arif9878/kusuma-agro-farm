@@ -31,19 +31,19 @@ onUnmounted(() => window.removeEventListener("scroll", onScroll));
 const products = [
   {
     title: "Cocopeat Block 5 kg",
-    desc: "Blok cocopeat padat berukuran standar ekspor. Cocok untuk media tanam, persemaian, dan campuran tanah hortikultura. Kadar air terkontrol, serat halus.",
+    desc: "Blok cocopeat padat berukuran standar ekspor dari Madiun, Jawa Timur. Cocok untuk media tanam hidroponik, persemaian bibit, dan campuran tanah hortikultura. Kadar EC rendah, serat halus, pH netral.",
     tags: ["Hidroponik", "Persemaian", "Hortikultura"],
     icon: "🌿",
   },
   {
     title: "Cocopeat Block 650g",
-    desc: "Ukuran compact untuk pengguna rumahan, nursery kecil, dan pot tanaman. Mudah disimpan, langsung pakai setelah direndam air.",
+    desc: "Ukuran compact untuk pengguna rumahan, nursery kecil, dan pot tanaman. Mudah disimpan dan dikirim ke seluruh Jawa Timur maupun luar pulau. Langsung pakai setelah direndam air.",
     tags: ["Rumahan", "Nursery", "Pot & Polybag"],
     icon: "🪴",
   },
   {
     title: "Cocopeat Block Custom",
-    desc: "Tersedia dalam berbagai bobot dan dimensi sesuai permintaan. Ideal untuk distributor, eksportir, dan kebutuhan skala besar.",
+    desc: "Tersedia dalam berbagai bobot dan dimensi sesuai permintaan. Ideal untuk distributor, eksportir, petani skala besar di Jawa Timur, dan kebutuhan komersial nasional.",
     tags: ["Ekspor", "Distributor", "Skala Besar"],
     icon: "📦",
   },
@@ -53,28 +53,28 @@ const products = [
 const advantages = [
   {
     icon: "♻️",
-    title: "Ramah Lingkungan",
-    desc: "Terbuat dari sabut kelapa alami — limbah yang diproses menjadi produk bernilai tinggi tanpa bahan kimia berbahaya.",
+    title: "100% Ramah Lingkungan",
+    desc: "Terbuat dari sabut kelapa alami Jawa Timur — limbah pertanian yang diproses menjadi media tanam bernilai tinggi tanpa bahan kimia berbahaya.",
   },
   {
     icon: "💧",
     title: "Daya Serap Air Tinggi",
-    desc: "Mampu menyerap dan menyimpan air hingga 8–10x beratnya, menjaga kelembaban tanah lebih lama untuk akar tanaman.",
+    desc: "Mampu menyerap dan menyimpan air hingga 8–10x beratnya, menjaga kelembaban akar tanaman lebih lama — ideal untuk iklim tropis Indonesia.",
   },
   {
     icon: "🌱",
-    title: "Cocok Berbagai Tanaman",
-    desc: "Ideal untuk sayuran, buah-buahan, bunga, tanaman hias, stroberi, melon, dan hampir semua jenis tanaman.",
+    title: "Cocok Semua Jenis Tanaman",
+    desc: "Ideal untuk sayuran, buah-buahan, bunga, tanaman hias, stroberi, melon, cabai, dan hampir semua tanaman pertanian maupun hortikultura.",
   },
   {
     icon: "⚡",
-    title: "Praktis Digunakan",
-    desc: "Bentuk blok padat memudahkan penyimpanan dan pengiriman. Cukup rendam air dan cocopeat siap digunakan dalam hitungan menit.",
+    title: "Praktis & Efisien",
+    desc: "Bentuk blok padat memudahkan penyimpanan, transportasi, dan pengiriman ke seluruh Indonesia. Cukup rendam air dan cocopeat siap digunakan.",
   },
   {
     icon: "✅",
-    title: "Kualitas Terjaga",
-    desc: "Diproduksi dengan proses seleksi ketat — kadar EC rendah, bebas gulma, dan konsisten di setiap batch produksi.",
+    title: "Kualitas Terjaga & Konsisten",
+    desc: "Diproduksi dengan seleksi ketat di Madiun, Jawa Timur — kadar EC rendah, bebas gulma & patogen, dan konsisten di setiap batch produksi.",
   },
 ];
 
@@ -82,24 +82,33 @@ const advantages = [
 const reasons = [
   {
     icon: "🏆",
-    title: "Bahan Pilihan",
-    desc: "Sabut kelapa segar dipilih dari petani lokal terpercaya untuk memastikan kualitas serat terbaik.",
+    title: "Bahan Pilihan Lokal",
+    desc: "Sabut kelapa segar dipilih dari petani lokal Jawa Timur terpercaya untuk memastikan kualitas serat cocopeat terbaik.",
   },
   {
     icon: "💰",
     title: "Harga Kompetitif",
-    desc: "Langsung dari produsen tanpa perantara, harga lebih terjangkau dengan kualitas premium.",
+    desc: "Langsung dari produsen di Madiun tanpa perantara — harga lebih terjangkau dengan kualitas premium setara ekspor.",
   },
   {
     icon: "🤝",
-    title: "Pelayanan Ramah",
-    desc: "Tim kami siap membantu konsultasi kebutuhan media tanam Anda dari awal hingga setelah pembelian.",
+    title: "Pelayanan Responsif",
+    desc: "Tim kami siap konsultasi kebutuhan media tanam Anda, dari petani Jawa Timur hingga distributor di seluruh Indonesia.",
   },
   {
     icon: "🌾",
-    title: "Multi Segmen",
-    desc: "Melayani petani, nursery, pelaku hidroponik, pengguna rumahan, hingga distributor dan eksportir.",
+    title: "Melayani Semua Segmen",
+    desc: "Petani, nursery, pelaku hidroponik, rumahan, distributor, hingga eksportir — semua kami layani dengan standar yang sama.",
   },
+];
+
+// ── Area Layanan ──────────────────────────────────────────────────────────────
+const serviceAreas = [
+  "Malang", "Surabaya", "Sidoarjo", "Pasuruan", "Probolinggo",
+  "Jember", "Banyuwangi", "Kediri", "Blitar", "Madiun",
+  "Mojokerto", "Gresik", "Lamongan", "Tuban", "Bojonegoro",
+  "Jakarta", "Bandung", "Semarang", "Yogyakarta", "Makassar",
+  "Medan", "Palembang", "Balikpapan", "Denpasar",
 ];
 
 // ── Kontak ────────────────────────────────────────────────────────────────────
@@ -162,15 +171,15 @@ function handleSubmit() {
     <section id="beranda" class="hero">
       <div class="hero__bg-overlay"></div>
       <div class="container hero__content">
-        <span class="hero__badge">🌱 Produk Agro Berkualitas Tinggi</span>
+        <span class="hero__badge">🌱 Supplier Cocopeat Block Terpercaya – Jawa Timur</span>
         <h1 class="hero__title">
-          Cocopeat Block Terbaik<br />
-          untuk <em>Hasil Panen Optimal</em>
+          Cocopeat Block Berkualitas<br />
+          dari <em>Madiun, Jawa Timur</em>
         </h1>
         <p class="hero__sub">
-          Media tanam alami dari sabut kelapa pilihan — ramah lingkungan, daya
-          serap tinggi, dan siap pakai untuk pertanian, hidroponik, nursery,
-          serta persemaian profesional.
+          Media tanam alami dari sabut kelapa pilihan — ramah lingkungan, daya serap
+          tinggi, dan siap pakai untuk pertanian, hidroponik, nursery, serta
+          persemaian. Melayani pengiriman ke seluruh Indonesia.
         </p>
         <div class="hero__cta">
           <a
@@ -201,7 +210,7 @@ function handleSubmit() {
       <div class="hero__image-wrap">
         <img
           src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80"
-          alt="Pertanian cocopeat"
+          alt="Lahan pertanian Kusuma Agro Farm di Madiun Jawa Timur – produsen cocopeat block"
           class="hero__image"
         />
       </div>
@@ -213,8 +222,11 @@ function handleSubmit() {
         <div class="about__image-wrap">
           <img
             src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=700&q=80"
-            alt="Kebun Kusuma Agro Farm"
+            alt="Produksi cocopeat block Kusuma Agro Farm di Madiun, Jawa Timur"
             class="about__image"
+            loading="lazy"
+            width="700"
+            height="525"
           />
           <div class="about__badge-float">
             <span>🌿</span>
@@ -230,30 +242,31 @@ function handleSubmit() {
             Mitra Pertanian Anda yang <em>Dapat Dipercaya</em>
           </h2>
           <p>
-            <strong>Kusuma Agro Farm</strong> adalah produsen cocopeat block
-            UMKM berbasis di Indonesia yang berkomitmen menghadirkan media tanam
-            berkualitas tinggi dari sabut kelapa pilihan.
+            <strong>Kusuma Agro Farm</strong> adalah produsen dan supplier
+            <strong>cocopeat block</strong> UMKM berbasis di <strong>Madiun, Jawa Timur</strong>
+            yang berkomitmen menghadirkan media tanam berkualitas tinggi dari
+            sabut kelapa pilihan untuk petani dan pelaku agribisnis di seluruh Indonesia.
           </p>
           <p>
-            Kami memahami kebutuhan petani, pelaku hidroponik, nursery, dan
-            distributor — sehingga setiap produk kami dirancang dengan standar
-            kualitas ketat: kadar EC rendah, bebas gulma, daya serap optimal,
-            dan konsistensi di setiap pengiriman.
+            Kami memahami kebutuhan petani, pelaku <strong>hidroponik</strong>, nursery, dan
+            distributor di Jawa Timur, Jawa Tengah, Jawa Barat, dan seluruh nusantara —
+            sehingga setiap produk kami dirancang dengan standar kualitas ketat:
+            kadar EC rendah, bebas gulma, daya serap optimal, dan konsistensi di
+            setiap pengiriman.
           </p>
           <p>
-            Dengan pengalaman bertahun-tahun, kami telah melayani berbagai
-            pelanggan dari skala rumahan hingga ekspor. Kepercayaan Anda adalah
-            prioritas utama kami.
+            Sejak 2018, kami telah melayani berbagai pelanggan dari skala
+            rumahan hingga ekspor. Kepercayaan Anda adalah prioritas utama kami.
           </p>
           <div class="about__highlights">
             <div class="about__highlight">
               <span>✅</span> Proses produksi higienis & terkontrol
             </div>
             <div class="about__highlight">
-              <span>✅</span> Tersedia untuk skala kecil hingga besar
+              <span>✅</span> Melayani seluruh wilayah Jawa Timur & Indonesia
             </div>
             <div class="about__highlight">
-              <span>✅</span> Pengiriman ke seluruh Indonesia
+              <span>✅</span> Ekspor ke mancanegara tersedia
             </div>
           </div>
         </div>
@@ -267,8 +280,9 @@ function handleSubmit() {
           <div class="section-label">Produk Kami</div>
           <h2 class="section-title">Cocopeat Block <em>Unggulan</em></h2>
           <p class="section-desc">
-            Kami menyediakan berbagai varian cocopeat block untuk memenuhi
-            kebutuhan skala rumahan, komersial, hingga ekspor internasional.
+            Kami menyediakan berbagai varian <strong>cocopeat block</strong> berkualitas
+            ekspor untuk kebutuhan pertanian, hidroponik, dan nursery — tersedia
+            dari skala rumahan hingga pengiriman ke seluruh Indonesia.
           </p>
         </div>
         <div class="product-grid">
@@ -305,9 +319,9 @@ function handleSubmit() {
             Kenapa Cocopeat Block <em>Lebih Unggul?</em>
           </h2>
           <p class="section-desc">
-            Dibandingkan media tanam konvensional, cocopeat block Kusuma Agro
-            Farm menawarkan keunggulan nyata untuk pertumbuhan tanaman yang
-            lebih sehat dan produktif.
+            Dibandingkan media tanam konvensional, <strong>cocopeat block Kusuma Agro Farm</strong>
+            dari Madiun, Jawa Timur menawarkan keunggulan nyata untuk
+            pertumbuhan tanaman yang lebih sehat dan produktif.
           </p>
         </div>
         <div class="advantage-grid">
@@ -353,6 +367,61 @@ function handleSubmit() {
       </div>
     </section>
 
+    <!-- ════════════════════════ AREA LAYANAN ════════════════════════ -->
+    <section class="section section--green-light" aria-label="Area Pengiriman Cocopeat Block">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">Jangkauan Layanan</div>
+          <h2 class="section-title">Kirim ke <em>Seluruh Indonesia</em></h2>
+          <p class="section-desc">
+            Dari Madiun, Jawa Timur — kami melayani pengiriman cocopeat block
+            ke berbagai kota dan wilayah di Indonesia.
+          </p>
+        </div>
+        <div class="area-cloud">
+          <span v-for="area in serviceAreas" :key="area" class="area-tag">
+            📍 {{ area }}
+          </span>
+        </div>
+        <p class="area-note">
+          Tidak ada kota Anda di daftar? Kami tetap bisa kirim! Hubungi kami
+          untuk konfirmasi pengiriman ke wilayah Anda.
+        </p>
+      </div>
+    </section>
+
+    <!-- ════════════════════════ FAQ ════════════════════════ -->
+    <section class="section section--light" aria-label="FAQ Cocopeat Block">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">FAQ</div>
+          <h2 class="section-title">Pertanyaan yang <em>Sering Ditanyakan</em></h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary class="faq-q">Apa itu cocopeat block dan apa kegunaannya?</summary>
+            <p class="faq-a">Cocopeat block adalah media tanam padat berbahan sabut kelapa yang dipadatkan. Sangat cocok digunakan sebagai media tanam hidroponik, persemaian bibit, campuran tanah pot, dan pertanian hortikultura karena memiliki daya serap air tinggi dan bersifat ramah lingkungan.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-q">Apakah cocopeat block Kusuma Agro Farm aman untuk semua jenis tanaman?</summary>
+            <p class="faq-a">Ya. Produk kami memiliki kadar EC rendah, pH netral (5.5–6.5), dan bebas gulma serta patogen, sehingga aman dan ideal untuk semua jenis tanaman — dari sayuran, buah-buahan, hingga tanaman hias dan bunga.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-q">Bagaimana cara menggunakan cocopeat block?</summary>
+            <p class="faq-a">Sangat mudah: rendam blok cocopeat dalam air selama 10–15 menit, kemudian hancurkan dan aduk hingga merata. Cocopeat siap digunakan langsung sebagai media tanam atau dicampur dengan sekam, perlite, atau kompos sesuai kebutuhan.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-q">Apakah tersedia pengiriman ke luar Jawa Timur?</summary>
+            <p class="faq-a">Ya, kami melayani pengiriman ke seluruh Indonesia — Jawa, Sumatera, Kalimantan, Sulawesi, Bali, NTT, Papua, dan wilayah lainnya. Hubungi kami untuk informasi ongkir ke lokasi Anda.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-q">Berapa minimum pemesanan cocopeat block?</summary>
+            <p class="faq-a">Kami melayani pemesanan dari kuantitas kecil untuk kebutuhan rumahan hingga kontainer penuh untuk ekspor dan distributor besar. Tidak ada minimum order yang ketat — hubungi kami untuk diskusi lebih lanjut.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <!-- ════════════════════════ KONTAK ════════════════════════ -->
     <section id="kontak" class="section section--light">
       <div class="container contact">
@@ -383,7 +452,7 @@ function handleSubmit() {
               <span class="contact__item-icon">📍</span>
               <div>
                 <strong>Alamat</strong>
-                <p>Jl. Pertanian No. 12, Madiun, Jawa Timur 65141</p>
+                <p>Jl. Pertanian No. 12, Madiun, Jawa Timur 63100</p>
               </div>
             </div>
             <div class="contact__item">
@@ -451,7 +520,7 @@ function handleSubmit() {
             >Kusuma <strong>Agro Farm</strong></span
           >
         </div>
-        <p class="footer__tagline">Media tanam alami, panen lebih optimal.</p>
+        <p class="footer__tagline">Supplier cocopeat block berkualitas dari Madiun, Jawa Timur — pengiriman ke seluruh Indonesia.</p>
         <nav class="footer__links">
           <a
             v-for="link in navLinks"
@@ -1253,6 +1322,84 @@ em {
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.35);
   margin-top: 8px;
+}
+
+/* ── AREA LAYANAN ─────────────────────────────────────────────────────────── */
+.area-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+.area-tag {
+  font-size: .85rem;
+  font-weight: 500;
+  color: var(--green-dark);
+  background: var(--white);
+  border: 1.5px solid var(--green-light);
+  padding: 6px 16px;
+  border-radius: 50px;
+  transition: var(--transition);
+}
+.area-tag:hover { background: var(--green-light); border-color: var(--green-soft); }
+
+.area-note {
+  text-align: center;
+  font-size: .9rem;
+  color: var(--text-light);
+  margin-top: 8px;
+}
+
+/* ── FAQ ──────────────────────────────────────────────────────────────────── */
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq-item {
+  background: var(--white);
+  border: 1.5px solid #d4e6d4;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: var(--transition);
+}
+.faq-item[open] { border-color: var(--green-soft); box-shadow: var(--shadow-sm); }
+
+.faq-q {
+  list-style: none;
+  padding: 20px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--green-dark);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  user-select: none;
+}
+.faq-q::-webkit-details-marker { display: none; }
+.faq-q::after {
+  content: "+";
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--green-soft);
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+.faq-item[open] .faq-q::after { content: "−"; }
+
+.faq-a {
+  padding: 0 24px 20px;
+  font-size: .95rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+  border-top: 1px solid var(--green-light);
+  margin-top: -1px;
 }
 
 /* ── RESPONSIVE ───────────────────────────────────────────────────────────── */
