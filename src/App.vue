@@ -31,18 +31,21 @@ onUnmounted(() => window.removeEventListener("scroll", onScroll));
 const products = [
   {
     title: "Cocopeat Block 5 kg",
+    image: "/products/cocopeat-block-5kg.jpg",
     desc: "Blok cocopeat padat berukuran standar ekspor dari Madiun, Jawa Timur. Cocok untuk media tanam hidroponik, persemaian bibit, dan campuran tanah hortikultura. Kadar EC rendah, serat halus, pH netral.",
     tags: ["Hidroponik", "Persemaian", "Hortikultura"],
     icon: "🌿",
   },
   {
     title: "Cocopeat Block 650g",
+    image: "/products/cocopeat-block-650g.png",
     desc: "Ukuran compact untuk pengguna rumahan, nursery kecil, dan pot tanaman. Mudah disimpan dan dikirim ke seluruh Jawa Timur maupun luar pulau. Langsung pakai setelah direndam air.",
     tags: ["Rumahan", "Nursery", "Pot & Polybag"],
     icon: "🪴",
   },
   {
     title: "Cocopeat Block Custom",
+    image: "/products/cocopeat-block-custom.jpg",
     desc: "Tersedia dalam berbagai bobot dan dimensi sesuai permintaan. Ideal untuk distributor, eksportir, petani skala besar di Jawa Timur, dan kebutuhan komersial nasional.",
     tags: ["Ekspor", "Distributor", "Skala Besar"],
     icon: "📦",
@@ -104,11 +107,30 @@ const reasons = [
 
 // ── Area Layanan ──────────────────────────────────────────────────────────────
 const serviceAreas = [
-  "Malang", "Surabaya", "Sidoarjo", "Pasuruan", "Probolinggo",
-  "Jember", "Banyuwangi", "Kediri", "Blitar", "Madiun",
-  "Mojokerto", "Gresik", "Lamongan", "Tuban", "Bojonegoro",
-  "Jakarta", "Bandung", "Semarang", "Yogyakarta", "Makassar",
-  "Medan", "Palembang", "Balikpapan", "Denpasar",
+  "Malang",
+  "Surabaya",
+  "Sidoarjo",
+  "Pasuruan",
+  "Probolinggo",
+  "Jember",
+  "Banyuwangi",
+  "Kediri",
+  "Blitar",
+  "Madiun",
+  "Mojokerto",
+  "Gresik",
+  "Lamongan",
+  "Tuban",
+  "Bojonegoro",
+  "Jakarta",
+  "Bandung",
+  "Semarang",
+  "Yogyakarta",
+  "Makassar",
+  "Medan",
+  "Palembang",
+  "Balikpapan",
+  "Denpasar",
 ];
 
 // ── Kontak ────────────────────────────────────────────────────────────────────
@@ -171,15 +193,17 @@ function handleSubmit() {
     <section id="beranda" class="hero">
       <div class="hero__bg-overlay"></div>
       <div class="container hero__content">
-        <span class="hero__badge">🌱 Supplier Cocopeat Block Terpercaya – Jawa Timur</span>
+        <span class="hero__badge"
+          >🌱 Supplier Cocopeat Block Terpercaya – Jawa Timur</span
+        >
         <h1 class="hero__title">
           Cocopeat Block Berkualitas<br />
           dari <em>Madiun, Jawa Timur</em>
         </h1>
         <p class="hero__sub">
-          Media tanam alami dari sabut kelapa pilihan — ramah lingkungan, daya serap
-          tinggi, dan siap pakai untuk pertanian, hidroponik, nursery, serta
-          persemaian. Melayani pengiriman ke seluruh Indonesia.
+          Media tanam alami dari sabut kelapa pilihan — ramah lingkungan, daya
+          serap tinggi, dan siap pakai untuk pertanian, hidroponik, nursery,
+          serta persemaian. Melayani pengiriman ke seluruh Indonesia.
         </p>
         <div class="hero__cta">
           <a
@@ -243,16 +267,18 @@ function handleSubmit() {
           </h2>
           <p>
             <strong>Kusuma Agro Farm</strong> adalah produsen dan supplier
-            <strong>cocopeat block</strong> UMKM berbasis di <strong>Madiun, Jawa Timur</strong>
+            <strong>cocopeat block</strong> UMKM berbasis di
+            <strong>Madiun, Jawa Timur</strong>
             yang berkomitmen menghadirkan media tanam berkualitas tinggi dari
-            sabut kelapa pilihan untuk petani dan pelaku agribisnis di seluruh Indonesia.
+            sabut kelapa pilihan untuk petani dan pelaku agribisnis di seluruh
+            Indonesia.
           </p>
           <p>
-            Kami memahami kebutuhan petani, pelaku <strong>hidroponik</strong>, nursery, dan
-            distributor di Jawa Timur, Jawa Tengah, Jawa Barat, dan seluruh nusantara —
-            sehingga setiap produk kami dirancang dengan standar kualitas ketat:
-            kadar EC rendah, bebas gulma, daya serap optimal, dan konsistensi di
-            setiap pengiriman.
+            Kami memahami kebutuhan petani, pelaku <strong>hidroponik</strong>,
+            nursery, dan distributor di Jawa Timur, Jawa Tengah, Jawa Barat, dan
+            seluruh nusantara — sehingga setiap produk kami dirancang dengan
+            standar kualitas ketat: kadar EC rendah, bebas gulma, daya serap
+            optimal, dan konsistensi di setiap pengiriman.
           </p>
           <p>
             Sejak 2018, kami telah melayani berbagai pelanggan dari skala
@@ -276,35 +302,93 @@ function handleSubmit() {
     <!-- ════════════════════════ PRODUK ════════════════════════ -->
     <section id="produk" class="section section--green-light">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header section-header--center">
           <div class="section-label">Produk Kami</div>
           <h2 class="section-title">Cocopeat Block <em>Unggulan</em></h2>
           <p class="section-desc">
-            Kami menyediakan berbagai varian <strong>cocopeat block</strong> berkualitas
-            ekspor untuk kebutuhan pertanian, hidroponik, dan nursery — tersedia
-            dari skala rumahan hingga pengiriman ke seluruh Indonesia.
+            Kami menyediakan berbagai varian
+            <strong>cocopeat block</strong> berkualitas untuk kebutuhan
+            pertanian, hidroponik, nursery, dan distribusi dalam berbagai skala.
           </p>
         </div>
+
         <div class="product-grid">
-          <div v-for="(p, i) in products" :key="i" class="product-card">
-            <div class="product-card__icon">{{ p.icon }}</div>
-            <h3 class="product-card__title">{{ p.title }}</h3>
-            <p class="product-card__desc">{{ p.desc }}</p>
-            <div class="product-card__tags">
-              <span
-                v-for="tag in p.tags"
-                :key="tag"
-                class="product-card__tag"
-                >{{ tag }}</span
-              >
+          <article class="product-card" v-for="p in products" :key="p.title">
+            <div class="product-image-wrap">
+              <img
+                :src="p.image"
+                :alt="p.title"
+                class="product-image"
+                loading="lazy"
+              />
             </div>
-            <a
-              href="#kontak"
-              class="btn btn--sm btn--primary mt-auto"
-              @click="smoothScroll($event, '#kontak')"
-            >
-              Tanya Harga
-            </a>
+
+            <div class="product-content">
+              <h3 class="product-content__title">{{ p.title }}</h3>
+              <p class="product-content__desc">{{ p.desc }}</p>
+
+              <div class="product-content__tags">
+                <span
+                  v-for="tag in p.tags"
+                  :key="tag"
+                  class="product-content__tag"
+                >
+                  {{ tag }}
+                </span>
+              </div>
+
+              <a
+                href="#kontak"
+                class="btn btn--sm btn--primary product-content__cta"
+                @click="smoothScroll($event, '#kontak')"
+              >
+                Tanya Harga
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="detail-produk" class="detail-section">
+      <div class="container detail-grid">
+        <div class="detail-image-wrap">
+          <img
+            src="/products/cocopeat-detail-texture.jpg"
+            alt="Detail tekstur cocopeat Kusuma Agro Farm"
+            class="detail-image"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="detail-content">
+          <span class="eyebrow">Detail Produk</span>
+          <h2>Tekstur Cocopeat Berkualitas dan Siap Pakai</h2>
+          <p>
+            Cocopeat kami memiliki tekstur yang baik, daya serap air tinggi, dan
+            cocok digunakan sebagai media tanam untuk berbagai jenis tanaman.
+            Material diproses dengan perhatian pada kualitas agar hasilnya
+            konsisten dan siap memenuhi kebutuhan pasar retail maupun
+            distribusi.
+          </p>
+
+          <div class="detail-features">
+            <div class="feature-item">
+              <h4>Daya Serap Tinggi</h4>
+              <p>Membantu menjaga kelembapan media tanam lebih optimal.</p>
+            </div>
+            <div class="feature-item">
+              <h4>Ramah Lingkungan</h4>
+              <p>
+                Terbuat dari bahan alami yang mendukung pertanian berkelanjutan.
+              </p>
+            </div>
+            <div class="feature-item">
+              <h4>Serbaguna</h4>
+              <p>
+                Cocok untuk nursery, hortikultura, hidroponik, dan pembibitan.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -319,7 +403,8 @@ function handleSubmit() {
             Kenapa Cocopeat Block <em>Lebih Unggul?</em>
           </h2>
           <p class="section-desc">
-            Dibandingkan media tanam konvensional, <strong>cocopeat block Kusuma Agro Farm</strong>
+            Dibandingkan media tanam konvensional,
+            <strong>cocopeat block Kusuma Agro Farm</strong>
             dari Madiun, Jawa Timur menawarkan keunggulan nyata untuk
             pertumbuhan tanaman yang lebih sehat dan produktif.
           </p>
@@ -368,14 +453,17 @@ function handleSubmit() {
     </section>
 
     <!-- ════════════════════════ AREA LAYANAN ════════════════════════ -->
-    <section class="section section--green-light" aria-label="Area Pengiriman Cocopeat Block">
+    <section
+      class="section section--green-light"
+      aria-label="Area Pengiriman Cocopeat Block"
+    >
       <div class="container">
         <div class="section-header">
           <div class="section-label">Jangkauan Layanan</div>
           <h2 class="section-title">Kirim ke <em>Seluruh Indonesia</em></h2>
           <p class="section-desc">
-            Dari Madiun, Jawa Timur — kami melayani pengiriman cocopeat block
-            ke berbagai kota dan wilayah di Indonesia.
+            Dari Madiun, Jawa Timur — kami melayani pengiriman cocopeat block ke
+            berbagai kota dan wilayah di Indonesia.
           </p>
         </div>
         <div class="area-cloud">
@@ -395,28 +483,66 @@ function handleSubmit() {
       <div class="container">
         <div class="section-header">
           <div class="section-label">FAQ</div>
-          <h2 class="section-title">Pertanyaan yang <em>Sering Ditanyakan</em></h2>
+          <h2 class="section-title">
+            Pertanyaan yang <em>Sering Ditanyakan</em>
+          </h2>
         </div>
         <div class="faq-list">
           <details class="faq-item">
-            <summary class="faq-q">Apa itu cocopeat block dan apa kegunaannya?</summary>
-            <p class="faq-a">Cocopeat block adalah media tanam padat berbahan sabut kelapa yang dipadatkan. Sangat cocok digunakan sebagai media tanam hidroponik, persemaian bibit, campuran tanah pot, dan pertanian hortikultura karena memiliki daya serap air tinggi dan bersifat ramah lingkungan.</p>
+            <summary class="faq-q">
+              Apa itu cocopeat block dan apa kegunaannya?
+            </summary>
+            <p class="faq-a">
+              Cocopeat block adalah media tanam padat berbahan sabut kelapa yang
+              dipadatkan. Sangat cocok digunakan sebagai media tanam hidroponik,
+              persemaian bibit, campuran tanah pot, dan pertanian hortikultura
+              karena memiliki daya serap air tinggi dan bersifat ramah
+              lingkungan.
+            </p>
           </details>
           <details class="faq-item">
-            <summary class="faq-q">Apakah cocopeat block Kusuma Agro Farm aman untuk semua jenis tanaman?</summary>
-            <p class="faq-a">Ya. Produk kami memiliki kadar EC rendah, pH netral (5.5–6.5), dan bebas gulma serta patogen, sehingga aman dan ideal untuk semua jenis tanaman — dari sayuran, buah-buahan, hingga tanaman hias dan bunga.</p>
+            <summary class="faq-q">
+              Apakah cocopeat block Kusuma Agro Farm aman untuk semua jenis
+              tanaman?
+            </summary>
+            <p class="faq-a">
+              Ya. Produk kami memiliki kadar EC rendah, pH netral (5.5–6.5), dan
+              bebas gulma serta patogen, sehingga aman dan ideal untuk semua
+              jenis tanaman — dari sayuran, buah-buahan, hingga tanaman hias dan
+              bunga.
+            </p>
           </details>
           <details class="faq-item">
-            <summary class="faq-q">Bagaimana cara menggunakan cocopeat block?</summary>
-            <p class="faq-a">Sangat mudah: rendam blok cocopeat dalam air selama 10–15 menit, kemudian hancurkan dan aduk hingga merata. Cocopeat siap digunakan langsung sebagai media tanam atau dicampur dengan sekam, perlite, atau kompos sesuai kebutuhan.</p>
+            <summary class="faq-q">
+              Bagaimana cara menggunakan cocopeat block?
+            </summary>
+            <p class="faq-a">
+              Sangat mudah: rendam blok cocopeat dalam air selama 10–15 menit,
+              kemudian hancurkan dan aduk hingga merata. Cocopeat siap digunakan
+              langsung sebagai media tanam atau dicampur dengan sekam, perlite,
+              atau kompos sesuai kebutuhan.
+            </p>
           </details>
           <details class="faq-item">
-            <summary class="faq-q">Apakah tersedia pengiriman ke luar Jawa Timur?</summary>
-            <p class="faq-a">Ya, kami melayani pengiriman ke seluruh Indonesia — Jawa, Sumatera, Kalimantan, Sulawesi, Bali, NTT, Papua, dan wilayah lainnya. Hubungi kami untuk informasi ongkir ke lokasi Anda.</p>
+            <summary class="faq-q">
+              Apakah tersedia pengiriman ke luar Jawa Timur?
+            </summary>
+            <p class="faq-a">
+              Ya, kami melayani pengiriman ke seluruh Indonesia — Jawa,
+              Sumatera, Kalimantan, Sulawesi, Bali, NTT, Papua, dan wilayah
+              lainnya. Hubungi kami untuk informasi ongkir ke lokasi Anda.
+            </p>
           </details>
           <details class="faq-item">
-            <summary class="faq-q">Berapa minimum pemesanan cocopeat block?</summary>
-            <p class="faq-a">Kami melayani pemesanan dari kuantitas kecil untuk kebutuhan rumahan hingga kontainer penuh untuk ekspor dan distributor besar. Tidak ada minimum order yang ketat — hubungi kami untuk diskusi lebih lanjut.</p>
+            <summary class="faq-q">
+              Berapa minimum pemesanan cocopeat block?
+            </summary>
+            <p class="faq-a">
+              Kami melayani pemesanan dari kuantitas kecil untuk kebutuhan
+              rumahan hingga kontainer penuh untuk ekspor dan distributor besar.
+              Tidak ada minimum order yang ketat — hubungi kami untuk diskusi
+              lebih lanjut.
+            </p>
           </details>
         </div>
       </div>
@@ -520,7 +646,10 @@ function handleSubmit() {
             >Kusuma <strong>Agro Farm</strong></span
           >
         </div>
-        <p class="footer__tagline">Supplier cocopeat block berkualitas dari Madiun, Jawa Timur — pengiriman ke seluruh Indonesia.</p>
+        <p class="footer__tagline">
+          Supplier cocopeat block berkualitas dari Madiun, Jawa Timur —
+          pengiriman ke seluruh Indonesia.
+        </p>
         <nav class="footer__links">
           <a
             v-for="link in navLinks"
@@ -1026,53 +1155,180 @@ em {
 /* ── PRODUCT GRID ─────────────────────────────────────────────────────────── */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 28px;
+  align-items: stretch;
 }
 
 .product-card {
   background: var(--white);
-  border-radius: var(--radius-lg);
-  padding: 36px 28px;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid rgba(64, 145, 108, 0.1);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 14px 34px rgba(16, 24, 40, 0.08);
+  border: 1px solid rgba(64, 145, 108, 0.12);
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  transition: var(--transition);
-}
-.product-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--green-soft);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
 }
 
-.product-card__icon {
-  font-size: 2.8rem;
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 50px rgba(16, 24, 40, 0.12);
+  border-color: rgba(64, 145, 108, 0.28);
 }
-.product-card__title {
+
+.product-image-wrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #eef4ec;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
+
+.product-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 22px 22px 24px;
+}
+
+.product-content__title {
+  margin: 0 0 10px;
   font-size: 1.2rem;
   font-weight: 700;
+  line-height: 1.35;
   color: var(--green-dark);
 }
-.product-card__desc {
-  font-size: 0.92rem;
+
+.product-content__desc {
+  margin: 0 0 16px;
+  font-size: 0.95rem;
+  line-height: 1.75;
   color: var(--text-mid);
-  line-height: 1.65;
   flex: 1;
 }
-.product-card__tags {
+
+.product-content__tags {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin-bottom: 18px;
 }
-.product-card__tag {
+
+.product-content__tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  padding: 6px 12px;
   font-size: 0.75rem;
   font-weight: 600;
+  line-height: 1;
   color: var(--green-soft);
   background: var(--green-light);
-  padding: 4px 12px;
-  border-radius: 50px;
+  border: 1px solid rgba(64, 145, 108, 0.12);
+  border-radius: 999px;
+}
+
+.product-content__cta {
+  margin-top: auto;
+  width: fit-content;
+}
+
+@media (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .product-content {
+    padding: 18px 18px 20px;
+  }
+
+  .product-content__title {
+    font-size: 1.08rem;
+  }
+
+  .product-content__desc {
+    font-size: 0.9rem;
+  }
+}
+
+/* ── DETAIL PRODUCT GRID ─────────────────────────────────────────────────────────── */
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.detail-image-wrap {
+  overflow: hidden;
+  border-radius: 28px;
+  background: #eef4ec;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+}
+
+.detail-content p {
+  margin-bottom: 24px;
+}
+
+.detail-features {
+  display: grid;
+  gap: 16px;
+}
+
+.feature-item {
+  padding: 18px 20px;
+  border-radius: 18px;
+  background: #f8fbf7;
+  border: 1px solid #e6efe4;
+}
+
+.feature-item h4 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  color: #1f3d2b;
+}
+
+.feature-item p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #627166;
+}
+
+@media (max-width: 960px) {
+  .product-grid,
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-header h2,
+  .detail-content h2 {
+    font-size: 30px;
+  }
 }
 
 /* ── ADVANTAGE GRID ───────────────────────────────────────────────────────── */
@@ -1333,7 +1589,7 @@ em {
   margin-bottom: 24px;
 }
 .area-tag {
-  font-size: .85rem;
+  font-size: 0.85rem;
   font-weight: 500;
   color: var(--green-dark);
   background: var(--white);
@@ -1342,11 +1598,14 @@ em {
   border-radius: 50px;
   transition: var(--transition);
 }
-.area-tag:hover { background: var(--green-light); border-color: var(--green-soft); }
+.area-tag:hover {
+  background: var(--green-light);
+  border-color: var(--green-soft);
+}
 
 .area-note {
   text-align: center;
-  font-size: .9rem;
+  font-size: 0.9rem;
   color: var(--text-light);
   margin-top: 8px;
 }
@@ -1367,7 +1626,10 @@ em {
   overflow: hidden;
   transition: var(--transition);
 }
-.faq-item[open] { border-color: var(--green-soft); box-shadow: var(--shadow-sm); }
+.faq-item[open] {
+  border-color: var(--green-soft);
+  box-shadow: var(--shadow-sm);
+}
 
 .faq-q {
   list-style: none;
@@ -1382,7 +1644,9 @@ em {
   gap: 12px;
   user-select: none;
 }
-.faq-q::-webkit-details-marker { display: none; }
+.faq-q::-webkit-details-marker {
+  display: none;
+}
 .faq-q::after {
   content: "+";
   font-size: 1.4rem;
@@ -1391,11 +1655,13 @@ em {
   flex-shrink: 0;
   transition: var(--transition);
 }
-.faq-item[open] .faq-q::after { content: "−"; }
+.faq-item[open] .faq-q::after {
+  content: "−";
+}
 
 .faq-a {
   padding: 0 24px 20px;
-  font-size: .95rem;
+  font-size: 0.95rem;
   color: var(--text-mid);
   line-height: 1.7;
   border-top: 1px solid var(--green-light);
