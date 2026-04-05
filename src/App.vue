@@ -31,21 +31,21 @@ onUnmounted(() => window.removeEventListener("scroll", onScroll));
 const products = [
   {
     title: "Cocopeat Block 5 kg",
-    image: "/products/cocopeat-block-5kg.jpg",
+    image: "/products/cocopeat-block-5kg.webp",
     desc: "Blok cocopeat padat berukuran standar ekspor dari Madiun, Jawa Timur. Cocok untuk media tanam hidroponik, persemaian bibit, dan campuran tanah hortikultura. Kadar EC rendah, serat halus, pH netral.",
     tags: ["Hidroponik", "Persemaian", "Hortikultura"],
     icon: "🌿",
   },
   {
     title: "Cocopeat Block 650g",
-    image: "/products/cocopeat-block-650g.png",
+    image: "/products/cocopeat-block-650.webp",
     desc: "Ukuran compact untuk pengguna rumahan, nursery kecil, dan pot tanaman. Mudah disimpan dan dikirim ke seluruh Jawa Timur maupun luar pulau. Langsung pakai setelah direndam air.",
     tags: ["Rumahan", "Nursery", "Pot & Polybag"],
     icon: "🪴",
   },
   {
     title: "Cocopeat Block Custom",
-    image: "/products/cocopeat-block-custom.jpg",
+    image: "/products/cocopeat-block-custom.webp",
     desc: "Tersedia dalam berbagai bobot dan dimensi sesuai permintaan. Ideal untuk distributor, eksportir, petani skala besar di Jawa Timur, dan kebutuhan komersial nasional.",
     tags: ["Ekspor", "Distributor", "Skala Besar"],
     icon: "📦",
@@ -354,7 +354,7 @@ function handleSubmit() {
       <div class="container detail-grid">
         <div class="detail-image-wrap">
           <img
-            src="/products/cocopeat-detail-texture.jpg"
+            src="/products/cocopeat-detail-texture.webp"
             alt="Detail tekstur cocopeat Kusuma Agro Farm"
             class="detail-image"
             loading="lazy"
