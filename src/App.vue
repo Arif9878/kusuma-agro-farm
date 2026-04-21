@@ -564,7 +564,7 @@ function handleSubmit() {
               <span class="contact__item-icon">📱</span>
               <div>
                 <strong>WhatsApp</strong>
-                <p>+62 812-3456-7890</p>
+                <p>+6281249851168</p>
               </div>
             </div>
             <div class="contact__item">
@@ -578,7 +578,10 @@ function handleSubmit() {
               <span class="contact__item-icon">📍</span>
               <div>
                 <strong>Alamat</strong>
-                <p>Jl. Pertanian No. 12, Madiun, Jawa Timur 63100</p>
+                <p>
+                  Dsn. Krajan, Ds. Suluk, Kec. Dolopo, Kabupaten Madiun, Jawa
+                  Timur 63174
+                </p>
               </div>
             </div>
             <div class="contact__item">
