@@ -338,9 +338,10 @@ function handleSubmit() {
               </div>
 
               <a
-                href="#kontak"
+                href="https://wa.me/6281249851168?text=Halo%20Kusuma%20Agro%20Farm%2C%20saya%20ingin%20tanya%20harga%20produk%20cocopeat%20block.%20Mohon%20info%20detailnya.%20Terima%20kasih!"
                 class="btn btn--sm btn--primary product-content__cta"
-                @click="smoothScroll($event, '#kontak')"
+                target="_blank"
+                rel="noopener"
               >
                 Tanya Harga
               </a>
@@ -571,7 +572,7 @@ function handleSubmit() {
               <span class="contact__item-icon">✉️</span>
               <div>
                 <strong>Email</strong>
-                <p>info@kusumaagrofarm.com</p>
+                <p>jefriae@gmail.com</p>
               </div>
             </div>
             <div class="contact__item">
@@ -595,7 +596,7 @@ function handleSubmit() {
         </div>
 
         <div class="contact__form-wrap">
-          <form class="contact__form" @submit.prevent="handleSubmit">
+          <form class="contact__form" action="mailto:jefriae@gmail.com" method="POST" enctype="text/plain">
             <h3>Kirim Pesan</h3>
 
             <div v-if="formSent" class="form-success">
