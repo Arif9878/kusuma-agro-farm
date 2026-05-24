@@ -11,6 +11,7 @@ const navLinks = [
   { label: "Produk", href: "#produk" },
   { label: "Keunggulan", href: "#keunggulan" },
   { label: "Kontak", href: "#kontak" },
+  { label: "🛒 Shopee", href: "https://id.shp.ee/4oUNDGwB", external: true },
 ];
 
 function smoothScroll(e, href) {
@@ -167,7 +168,8 @@ function handleSubmit() {
             :key="link.href"
             :href="link.href"
             class="navbar__link"
-            @click="smoothScroll($event, link.href)"
+            v-bind="link.external ? { target: '_blank', rel: 'noopener', 'aria-label': link.label } : {}"
+            v-on="!link.external ? { click: (e) => smoothScroll(e, link.href) } : {}"
             >{{ link.label }}</a
           >
           <a
@@ -659,7 +661,8 @@ function handleSubmit() {
             v-for="link in navLinks"
             :key="link.href"
             :href="link.href"
-            @click="smoothScroll($event, link.href)"
+            v-bind="link.external ? { target: '_blank', rel: 'noopener', 'aria-label': link.label } : {}"
+            v-on="!link.external ? { click: (e) => smoothScroll(e, link.href) } : {}"
           >
             {{ link.label }}
           </a>
