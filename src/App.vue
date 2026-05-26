@@ -5,13 +5,15 @@ import { ref, onMounted, onUnmounted } from "vue";
 const menuOpen = ref(false);
 const scrolled = ref(false);
 
+import shopeeIcon from './assets/shopee-icon.svg';
+
 const navLinks = [
   { label: "Beranda", href: "#beranda" },
   { label: "Tentang Kami", href: "#tentang" },
   { label: "Produk", href: "#produk" },
   { label: "Keunggulan", href: "#keunggulan" },
   { label: "Kontak", href: "#kontak" },
-  { label: "🛒 Shopee", href: "https://id.shp.ee/4oUNDGwB", external: true },
+  { label: "Shopee", href: "https://id.shp.ee/4oUNDGwB", external: true, icon: shopeeIcon },
 ];
 
 function smoothScroll(e, href) {
@@ -170,7 +172,7 @@ function handleSubmit() {
             class="navbar__link"
             v-bind="link.external ? { target: '_blank', rel: 'noopener', 'aria-label': link.label } : {}"
             v-on="!link.external ? { click: (e) => smoothScroll(e, link.href) } : {}"
-            >{{ link.label }}</a
+            ><span v-if="link.icon" style="display:inline-flex;align-items:center;"><img :src="link.icon" alt="Shopee" style="height:1em;width:1em;vertical-align:middle;margin-right:4px;display:inline;" />{{ link.label }}</span><span v-else>{{ link.label }}</span></a
           >
           <a
             href="#kontak"
