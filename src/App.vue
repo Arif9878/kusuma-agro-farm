@@ -201,14 +201,12 @@ function handleSubmit() {
           >🌱 Supplier Cocopeat Block Terpercaya – Jawa Timur</span
         >
         <h1 class="hero__title">
-          Cocopeat Block Berkualitas<br />
-          dari <em>Madiun, Jawa Timur</em>
-        </h1>
-        <p class="hero__sub">
-          Media tanam alami dari sabut kelapa pilihan — ramah lingkungan, daya
-          serap tinggi, dan siap pakai untuk pertanian, hidroponik, nursery,
-          serta persemaian. Melayani pengiriman ke seluruh Indonesia.
-        </p>
+  Supplier Cocopeat Block Berkualitas di Jawa Timur<br />
+  Media Tanam Organik untuk Hidroponik, Nursery, dan Pertanian
+</h1>
+<p class="hero__sub">
+  Kusuma Agro Farm adalah produsen dan supplier <strong>cocopeat block</strong> terpercaya di Madiun, Jawa Timur. Menyediakan media tanam organik dari sabut kelapa pilihan, ramah lingkungan, daya serap tinggi, cocok untuk <strong>hidroponik</strong>, <strong>nursery</strong>, dan pertanian modern. <a href="#produk">Lihat produk cocopeat &rarr;</a> atau <a href="#kontak">hubungi kami</a> untuk pemesanan ke seluruh Indonesia.
+</p>
         <div class="hero__cta">
           <a
             href="#kontak"
@@ -270,13 +268,10 @@ function handleSubmit() {
             Mitra Pertanian Anda yang <em>Dapat Dipercaya</em>
           </h2>
           <p>
-            <strong>Kusuma Agro Farm</strong> adalah produsen dan supplier
-            <strong>cocopeat block</strong> UMKM berbasis di
-            <strong>Madiun, Jawa Timur</strong>
-            yang berkomitmen menghadirkan media tanam berkualitas tinggi dari
-            sabut kelapa pilihan untuk petani dan pelaku agribisnis di seluruh
-            Indonesia.
-          </p>
+  <strong>Kusuma Agro Farm</strong> adalah produsen dan supplier <strong>cocopeat block</strong> UMKM berbasis di <strong>Madiun, Jawa Timur</strong>.
+  Kami berkomitmen menghadirkan <strong>media tanam cocopeat</strong> berkualitas tinggi dari sabut kelapa pilihan untuk petani, pelaku <strong>hidroponik</strong>, <strong>nursery</strong>, dan agribisnis di seluruh Indonesia.
+  <a href="#produk">Lihat produk cocopeat &rarr;</a>
+</p>
           <p>
             Kami memahami kebutuhan petani, pelaku <strong>hidroponik</strong>,
             nursery, dan distributor di Jawa Timur, Jawa Tengah, Jawa Barat, dan
