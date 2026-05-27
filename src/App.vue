@@ -7,13 +7,80 @@ const scrolled = ref(false);
 
 import shopeeIcon from './assets/shopee-icon.svg';
 
+const lang = ref('id');
 const navLinks = [
-  { label: "Beranda", href: "#beranda" },
-  { label: "Tentang Kami", href: "#tentang" },
-  { label: "Produk", href: "#produk" },
-  { label: "Keunggulan", href: "#keunggulan" },
-  { label: "Kontak", href: "#kontak" },
-  { label: "Shopee", href: "https://id.shp.ee/4oUNDGwB", external: true, icon: shopeeIcon },
+  { label: {id: "Beranda", en: "Home"}, href: "#beranda" },
+  { label: {id: "Tentang Kami", en: "About Us"}, href: "#tentang" },
+  { label: {id: "Produk", en: "Products"}, href: "#produk" },
+  { label: {id: "Keunggulan", en: "Advantages"}, href: "#keunggulan" },
+  { label: {id: "Hubungi Kami", en: "Contact Us"}, href: "#kontak" },
+  { label: {id: "Shopee", en: "Shopee"}, href: "https://id.shp.ee/4oUNDGwB", external: true, icon: shopeeIcon },
+];
+
+// ── About Section Bilingual Content ──
+const aboutBadge = {
+  title: { id: "Berdiri Sejak 2018", en: "Established Since 2018" },
+  desc: { id: "Produsen Lokal Terpercaya", en: "Trusted Local Producer" }
+};
+const aboutSection = {
+  label: { id: "Tentang Kami", en: "About Us" },
+  title: { id: "Mitra Pertanian Anda yang Dapat Dipercaya", en: "Your Trusted Agriculture Partner" },
+  p1: {
+    id: '<strong>Kusuma Agro Farm</strong> adalah produsen dan supplier cocopeat block UMKM berbasis di <strong>Madiun, Jawa Timur</strong>.<br>Kami berkomitmen menghadirkan <strong>media tanam cocopeat</strong> berkualitas tinggi dari sabut kelapa pilihan untuk petani, pelaku <strong>hidroponik</strong>, <strong>nursery</strong>, dan agribisnis di seluruh Indonesia.<br><a href="#produk">Lihat produk cocopeat &rarr;</a>',
+    en: '<strong>Kusuma Agro Farm</strong> is a UMKM-based cocopeat block producer and supplier located in <strong>Madiun, East Java</strong>.<br>We are committed to providing high-quality <strong>cocopeat growing media</strong> from selected coconut husks for farmers, hydroponics, nurseries, and agribusinesses throughout Indonesia.<br><a href="#produk">See cocopeat products &rarr;</a>'
+  },
+  p2: {
+    id: 'Kami memahami kebutuhan petani, pelaku <strong>hidroponik</strong>, nursery, dan distributor di Jawa Timur, Jawa Tengah, Jawa Barat, dan seluruh nusantara — sehingga setiap produk kami dirancang dengan standar kualitas ketat: kadar EC rendah, bebas gulma, daya serap optimal, dan konsistensi di setiap pengiriman.',
+    en: 'We understand the needs of farmers, hydroponics practitioners, nurseries, and distributors in East Java, Central Java, West Java, and across the archipelago — so every product is designed with strict quality standards: low EC, weed-free, optimal absorption, and consistency in every shipment.'
+  },
+  p3: {
+    id: 'Sejak 2018, kami telah melayani berbagai pelanggan dari skala rumahan hingga ekspor. Kepercayaan Anda adalah prioritas utama kami.',
+    en: 'Since 2018, we have served a wide range of customers from home scale to export. Your trust is our top priority.'
+  }
+};
+const aboutHighlights = [
+  { id: "Proses produksi higienis & terkontrol", en: "Hygienic & controlled production process" },
+  { id: "Melayani seluruh wilayah Jawa Timur & Indonesia", en: "Serving all East Java & Indonesia regions" },
+  { id: "Ekspor ke mancanegara tersedia", en: "Export to overseas available" }
+];
+
+// ── Product Section Bilingual Content ──
+const productSection = {
+  label: { id: "Produk Kami", en: "Our Products" },
+  title: { id: "Cocopeat Block <em>Unggulan</em>", en: "Featured <em>Cocopeat Block</em>" },
+  desc: {
+    id: "Kami menyediakan berbagai varian <strong>cocopeat block</strong> berkualitas untuk kebutuhan pertanian, hidroponik, nursery, dan distribusi dalam berbagai skala.",
+    en: "We provide a variety of high-quality <strong>cocopeat blocks</strong> for agriculture, hydroponics, nurseries, and distribution at various scales."
+  },
+  cta: { id: "Tanya Harga", en: "Ask Price" }
+};
+
+// ── Detail Section Bilingual Content ──
+const detailSection = {
+  label: { id: "Detail Produk", en: "Product Details" },
+  title: { id: "Tekstur Cocopeat Berkualitas dan Siap Pakai", en: "High-Quality, Ready-to-Use Cocopeat Texture" },
+  desc: {
+    id: "Cocopeat kami memiliki tekstur yang baik, daya serap air tinggi, dan cocok digunakan sebagai media tanam untuk berbagai jenis tanaman. Material diproses dengan perhatian pada kualitas agar hasilnya konsisten dan siap memenuhi kebutuhan pasar retail maupun distribusi.",
+    en: "Our cocopeat has a good texture, high water absorption, and is suitable as a growing medium for various types of plants. The material is processed with attention to quality so the results are consistent and ready to meet the needs of both retail and distribution markets."
+  },
+  suitable: {
+    id: "Cocok untuk nursery, hortikultura, hidroponik, dan pembibitan.",
+    en: "Suitable for nurseries, horticulture, hydroponics, and seedling."
+  }
+};
+const detailFeatures = [
+  {
+    title: { id: "Daya Serap Tinggi", en: "High Absorption" },
+    desc: { id: "Membantu menjaga kelembapan media tanam lebih optimal.", en: "Helps maintain optimal moisture in the growing media." }
+  },
+  {
+    title: { id: "Ramah Lingkungan", en: "Eco-Friendly" },
+    desc: { id: "Terbuat dari bahan alami yang mendukung pertanian berkelanjutan.", en: "Made from natural materials that support sustainable agriculture." }
+  },
+  {
+    title: { id: "Serbaguna", en: "Versatile" },
+    desc: { id: "Cocok untuk nursery, hortikultura, hidroponik, dan pembibitan.", en: "Suitable for nurseries, horticulture, hydroponics, and seedling." }
+  }
 ];
 
 function smoothScroll(e, href) {
@@ -30,28 +97,97 @@ function onScroll() {
 onMounted(() => window.addEventListener("scroll", onScroll));
 onUnmounted(() => window.removeEventListener("scroll", onScroll));
 
+// ── FAQ Bilingual Content ──
+const faqList = [
+  {
+    q: {
+      id: "Apa itu cocopeat block dan apa kegunaannya?",
+      en: "What is a cocopeat block and what is it used for?"
+    },
+    a: {
+      id: "Cocopeat block adalah media tanam padat berbahan sabut kelapa yang dipadatkan. Sangat cocok digunakan sebagai media tanam hidroponik, persemaian bibit, campuran tanah pot, dan pertanian hortikultura karena memiliki daya serap air tinggi dan bersifat ramah lingkungan.",
+      en: "A cocopeat block is a solid growing medium made from compressed coconut husk. It is ideal for hydroponics, seedling nurseries, potting soil mixes, and horticulture because it has high water retention and is environmentally friendly."
+    }
+  },
+  {
+    q: {
+      id: "Apakah cocopeat block Kusuma Agro Farm aman untuk semua jenis tanaman?",
+      en: "Is Kusuma Agro Farm's cocopeat block safe for all types of plants?"
+    },
+    a: {
+      id: "Ya. Produk kami memiliki kadar EC rendah, pH netral (5.5–6.5), dan bebas gulma serta patogen, sehingga aman dan ideal untuk semua jenis tanaman — dari sayuran, buah-buahan, hingga tanaman hias dan bunga.",
+      en: "Yes. Our product has low EC, neutral pH (5.5–6.5), and is free from weeds and pathogens, making it safe and ideal for all types of plants — from vegetables and fruits to ornamental and flowering plants."
+    }
+  },
+  {
+    q: {
+      id: "Bagaimana cara menggunakan cocopeat block?",
+      en: "How do you use a cocopeat block?"
+    },
+    a: {
+      id: "Sangat mudah: rendam blok cocopeat dalam air selama 10–15 menit, kemudian hancurkan dan aduk hingga merata. Cocopeat siap digunakan langsung sebagai media tanam atau dicampur dengan sekam, perlite, atau kompos sesuai kebutuhan.",
+      en: "Very easy: soak the cocopeat block in water for 10–15 minutes, then break it apart and mix evenly. The cocopeat is ready to use directly as a growing medium or mixed with husk, perlite, or compost as needed."
+    }
+  },
+  {
+    q: {
+      id: "Apakah tersedia pengiriman ke luar Jawa Timur?",
+      en: "Is shipping available outside East Java?"
+    },
+    a: {
+      id: "Ya, kami melayani pengiriman ke seluruh Indonesia — Jawa, Sumatera, Kalimantan, Sulawesi, Bali, NTT, Papua, dan wilayah lainnya. Hubungi kami untuk informasi ongkir ke lokasi Anda.",
+      en: "Yes, we ship throughout Indonesia — Java, Sumatra, Kalimantan, Sulawesi, Bali, NTT, Papua, and other regions. Contact us for shipping rates to your location."
+    }
+  },
+  {
+    q: {
+      id: "Berapa minimum pemesanan cocopeat block?",
+      en: "What is the minimum order for cocopeat blocks?"
+    },
+    a: {
+      id: "Kami melayani pemesanan dari kuantitas kecil untuk kebutuhan rumahan hingga kontainer penuh untuk ekspor dan distributor besar. Tidak ada minimum order yang ketat — hubungi kami untuk diskusi lebih lanjut.",
+      en: "We accept orders from small quantities for home use to full containers for export and large distributors. There is no strict minimum order — contact us to discuss your needs."
+    }
+  }
+];
+
 // ── Produk ───────────────────────────────────────────────────────────────────
 const products = [
   {
-    title: "Cocopeat Block 5 kg",
+    title: {id: "Cocopeat Block 5 kg", en: "Cocopeat Block 5 kg"},
     image: "/products/cocopeat-block-5kg.webp",
-    desc: "Blok cocopeat padat berukuran standar ekspor dari Madiun, Jawa Timur. Cocok untuk media tanam hidroponik, persemaian bibit, dan campuran tanah hortikultura. Kadar EC rendah, serat halus, pH netral.",
-    tags: ["Hidroponik", "Persemaian", "Hortikultura"],
+    desc: {
+      id: "Blok cocopeat padat 5 kg, cocok untuk media tanam, persemaian, dan hortikultura.",
+      en: "5 kg solid cocopeat block, ideal for growing media, seedling, and horticulture."
+    },
+    tags: {id: ["Hidroponik", "Persemaian", "Hortikultura"], en: ["Hydroponics", "Seedling", "Horticulture"]},
     icon: "🌿",
+    price: {id: "IDR 55.950/blok", en: "IDR 55,950/block"},
+    label: {id: "", en: ""}
   },
   {
-    title: "Cocopeat Block 650g",
+    title: {id: "Cocopeat Block 650g", en: "Cocopeat Block 650g"},
     image: "/products/cocopeat-block-650.webp",
-    desc: "Ukuran compact untuk pengguna rumahan, nursery kecil, dan pot tanaman. Mudah disimpan dan dikirim ke seluruh Jawa Timur maupun luar pulau. Langsung pakai setelah direndam air.",
-    tags: ["Rumahan", "Nursery", "Pot & Polybag"],
+    desc: {
+      id: "Cocopeat block 650g, ukuran praktis untuk rumah tangga dan nursery kecil.",
+      en: "650g cocopeat block, practical size for home use and small nurseries."
+    },
+    tags: {id: ["Rumahan", "Nursery", "Pot & Polybag"], en: ["Home", "Nursery", "Pot & Polybag"]},
     icon: "🪴",
+    price: {id: "", en: ""},
+    label: {id: "Segera Tersedia", en: "Ready Soon"}
   },
   {
-    title: "Cocopeat Block Custom",
+    title: {id: "Cocopeat Block Custom", en: "Cocopeat Block Custom"},
     image: "/products/cocopeat-block-custom.webp",
-    desc: "Tersedia dalam berbagai bobot dan dimensi sesuai permintaan. Ideal untuk distributor, eksportir, petani skala besar di Jawa Timur, dan kebutuhan komersial nasional.",
-    tags: ["Ekspor", "Distributor", "Skala Besar"],
+    desc: {
+      id: "Blok cocopeat custom, tersedia berbagai ukuran sesuai kebutuhan Anda.",
+      en: "Custom cocopeat block, available in various sizes to suit your needs."
+    },
+    tags: {id: ["Ekspor", "Distributor", "Skala Besar"], en: ["Export", "Distributor", "Large Scale"]},
     icon: "📦",
+    price: {id: "", en: ""},
+    label: {id: "", en: ""},
   },
 ];
 
@@ -59,28 +195,43 @@ const products = [
 const advantages = [
   {
     icon: "♻️",
-    title: "100% Ramah Lingkungan",
-    desc: "Terbuat dari sabut kelapa alami Jawa Timur — limbah pertanian yang diproses menjadi media tanam bernilai tinggi tanpa bahan kimia berbahaya.",
+    title: {id: "100% Ramah Lingkungan", en: "100% Eco-Friendly"},
+    desc: {
+      id: "Terbuat dari sabut kelapa alami Jawa Timur — limbah pertanian yang diproses menjadi media tanam bernilai tinggi tanpa bahan kimia berbahaya.",
+      en: "Made from natural coconut husk from East Java — agricultural waste processed into high-value growing media without harmful chemicals."
+    },
   },
   {
     icon: "💧",
-    title: "Daya Serap Air Tinggi",
-    desc: "Mampu menyerap dan menyimpan air hingga 8–10x beratnya, menjaga kelembaban akar tanaman lebih lama — ideal untuk iklim tropis Indonesia.",
+    title: {id: "Daya Serap Air Tinggi", en: "High Water Absorption"},
+    desc: {
+      id: "Mampu menyerap dan menyimpan air hingga 8–10x beratnya, menjaga kelembaban akar tanaman lebih lama — ideal untuk iklim tropis Indonesia.",
+      en: "Can absorb and retain water up to 8–10x its weight, keeping plant roots moist longer — ideal for Indonesia's tropical climate."
+    },
   },
   {
     icon: "🌱",
-    title: "Cocok Semua Jenis Tanaman",
-    desc: "Ideal untuk sayuran, buah-buahan, bunga, tanaman hias, stroberi, melon, cabai, dan hampir semua tanaman pertanian maupun hortikultura.",
+    title: {id: "Cocok Semua Jenis Tanaman", en: "Suitable for All Plants"},
+    desc: {
+      id: "Ideal untuk sayuran, buah-buahan, bunga, tanaman hias, stroberi, melon, cabai, dan hampir semua tanaman pertanian maupun hortikultura.",
+      en: "Ideal for vegetables, fruits, flowers, ornamentals, strawberries, melons, chilies, and almost all agricultural or horticultural crops."
+    },
   },
   {
     icon: "⚡",
-    title: "Praktis & Efisien",
-    desc: "Bentuk blok padat memudahkan penyimpanan, transportasi, dan pengiriman ke seluruh Indonesia. Cukup rendam air dan cocopeat siap digunakan.",
+    title: {id: "Praktis & Efisien", en: "Practical & Efficient"},
+    desc: {
+      id: "Bentuk blok padat memudahkan penyimpanan, transportasi, dan pengiriman ke seluruh Indonesia. Cukup rendam air dan cocopeat siap digunakan.",
+      en: "Solid block form makes storage, transport, and shipping across Indonesia easy. Just soak in water and cocopeat is ready to use."
+    },
   },
   {
     icon: "✅",
-    title: "Kualitas Terjaga & Konsisten",
-    desc: "Diproduksi dengan seleksi ketat di Madiun, Jawa Timur — kadar EC rendah, bebas gulma & patogen, dan konsisten di setiap batch produksi.",
+    title: {id: "Kualitas Terjaga & Konsisten", en: "Consistent Quality"},
+    desc: {
+      id: "Diproduksi dengan seleksi ketat di Madiun, Jawa Timur — kadar EC rendah, bebas gulma & patogen, dan konsisten di setiap batch produksi.",
+      en: "Produced with strict selection in Madiun, East Java — low EC, weed & pathogen free, and consistent in every production batch."
+    },
   },
 ];
 
@@ -88,57 +239,70 @@ const advantages = [
 const reasons = [
   {
     icon: "🏆",
-    title: "Bahan Pilihan Lokal",
-    desc: "Sabut kelapa segar dipilih dari petani lokal Jawa Timur terpercaya untuk memastikan kualitas serat cocopeat terbaik.",
+    title: {id: "Bahan Pilihan Lokal", en: "Selected Local Materials"},
+    desc: {
+      id: "Sabut kelapa segar dipilih dari petani lokal Jawa Timur terpercaya untuk memastikan kualitas serat cocopeat terbaik.",
+      en: "Fresh coconut husks are selected from trusted East Java farmers to ensure the best cocopeat fiber quality."
+    },
   },
   {
     icon: "💰",
-    title: "Harga Kompetitif",
-    desc: "Langsung dari produsen di Madiun tanpa perantara — harga lebih terjangkau dengan kualitas premium setara ekspor.",
+    title: {id: "Harga Kompetitif", en: "Competitive Price"},
+    desc: {
+      id: "Langsung dari produsen di Madiun tanpa perantara — harga lebih terjangkau dengan kualitas premium setara ekspor.",
+      en: "Direct from the producer in Madiun without intermediaries — more affordable prices with export-quality standards."
+    },
   },
   {
     icon: "🤝",
-    title: "Pelayanan Responsif",
-    desc: "Tim kami siap konsultasi kebutuhan media tanam Anda, dari petani Jawa Timur hingga distributor di seluruh Indonesia.",
+    title: {id: "Pelayanan Responsif", en: "Responsive Service"},
+    desc: {
+      id: "Tim kami siap konsultasi kebutuhan media tanam Anda, dari petani Jawa Timur hingga distributor di seluruh Indonesia.",
+      en: "Our team is ready to consult your growing media needs, from East Java farmers to distributors across Indonesia."
+    },
   },
   {
     icon: "🌾",
-    title: "Melayani Semua Segmen",
-    desc: "Petani, nursery, pelaku hidroponik, rumahan, distributor, hingga eksportir — semua kami layani dengan standar yang sama.",
+    title: {id: "Melayani Semua Segmen", en: "Serving All Segments"},
+    desc: {
+      id: "Petani, nursery, pelaku hidroponik, rumahan, distributor, hingga eksportir — semua kami layani dengan standar yang sama.",
+      en: "Farmers, nurseries, hydroponic practitioners, households, distributors, and exporters — all served with the same standard."
+    },
   },
 ];
 
 // ── Area Layanan ──────────────────────────────────────────────────────────────
-const serviceAreas = [
-  "Malang",
-  "Surabaya",
-  "Sidoarjo",
-  "Pasuruan",
-  "Probolinggo",
-  "Jember",
-  "Banyuwangi",
-  "Kediri",
-  "Blitar",
-  "Madiun",
-  "Mojokerto",
-  "Gresik",
-  "Lamongan",
-  "Tuban",
-  "Bojonegoro",
-  "Jakarta",
-  "Bandung",
-  "Semarang",
-  "Yogyakarta",
-  "Makassar",
-  "Medan",
-  "Palembang",
-  "Balikpapan",
-  "Denpasar",
-];
+const serviceAreas = {
+  id: [
+    "Malang", "Surabaya", "Sidoarjo", "Pasuruan", "Probolinggo", "Jember", "Banyuwangi", "Kediri", "Blitar", "Madiun", "Mojokerto", "Gresik", "Lamongan", "Tuban", "Bojonegoro", "Jakarta", "Bandung", "Semarang", "Yogyakarta", "Makassar", "Medan", "Palembang", "Balikpapan", "Denpasar"
+  ],
+  en: [
+    "Malang", "Surabaya", "Sidoarjo", "Pasuruan", "Probolinggo", "Jember", "Banyuwangi", "Kediri", "Blitar", "Madiun", "Mojokerto", "Gresik", "Lamongan", "Tuban", "Bojonegoro", "Jakarta", "Bandung", "Semarang", "Yogyakarta", "Makassar", "Medan", "Palembang", "Balikpapan", "Denpasar"
+  ]
+};
 
 // ── Kontak ────────────────────────────────────────────────────────────────────
 const form = ref({ name: "", email: "", message: "" });
 const formSent = ref(false);
+
+const contactText = {
+  id: {
+    title: "Kontak Kami",
+    name: "Nama",
+    email: "Email",
+    message: "Pesan",
+    send: "Kirim Pesan",
+    sent: "Pesan berhasil dikirim!"
+  },
+  en: {
+    title: "Contact Us",
+    name: "Name",
+    email: "Email",
+    message: "Message",
+    send: "Send Message",
+    sent: "Message sent successfully!"
+  }
+};
 
 function handleSubmit() {
   if (!form.value.name || !form.value.email || !form.value.message) return;
@@ -163,22 +327,20 @@ function handleSubmit() {
             >Kusuma <strong>Agro Farm</strong></span
           >
         </a>
-
+        <div class="navbar__lang-toggle" style="margin-left:auto;display:flex;align-items:center;gap:4px;">
+  <span style="font-size:1.2em;vertical-align:middle;margin-right:4px;">🌐</span>
+  <button :class="{active: lang==='id'}" @click="lang='id'" style="padding:2px 8px;">ID</button>
+  <button :class="{active: lang==='en'}" @click="lang='en'" style="padding:2px 8px;">EN</button>
+</div>
         <nav class="navbar__links" :class="{ 'navbar__links--open': menuOpen }">
           <a
             v-for="link in navLinks"
             :key="link.href"
             :href="link.href"
             class="navbar__link"
-            v-bind="link.external ? { target: '_blank', rel: 'noopener', 'aria-label': link.label } : {}"
+            v-bind="link.external ? { target: '_blank', rel: 'noopener', 'aria-label': link.label[lang] } : {}"
             v-on="!link.external ? { click: (e) => smoothScroll(e, link.href) } : {}"
-            ><span v-if="link.icon" style="display:inline-flex;align-items:center;"><img :src="link.icon" alt="Shopee" style="height:1em;width:1em;vertical-align:middle;margin-right:4px;display:inline;" />{{ link.label }}</span><span v-else>{{ link.label }}</span></a
-          >
-          <a
-            href="#kontak"
-            class="btn btn--sm"
-            @click="smoothScroll($event, '#kontak')"
-            >Hubungi Kami</a
+            ><span v-if="link.icon" style="display:inline-flex;align-items:center;"><img :src="link.icon" alt="Shopee" style="height:1em;width:1em;vertical-align:middle;margin-right:4px;display:inline;" />{{ link.label[lang] }}</span><span v-else>{{ link.label[lang] }}</span></a
           >
         </nav>
 
@@ -197,15 +359,27 @@ function handleSubmit() {
     <section id="beranda" class="hero">
       <div class="hero__bg-overlay"></div>
       <div class="container hero__content">
-        <span class="hero__badge"
-          >🌱 Supplier Cocopeat Block Terpercaya – Jawa Timur</span
-        >
+        <span class="hero__badge">
+  <template v-if="lang==='id'">🌱 Supplier Cocopeat Block Terpercaya – Jawa Timur</template>
+  <template v-else>🌱 Trusted Cocopeat Block Supplier – East Java</template>
+</span>
         <h1 class="hero__title">
-  Supplier Cocopeat Block Berkualitas di Jawa Timur<br />
-  Media Tanam Organik untuk Hidroponik, Nursery, dan Pertanian
+  <template v-if="lang==='id'">
+    Supplier Cocopeat Block Berkualitas di Jawa Timur<br />
+    Media Tanam Organik untuk Hidroponik, Nursery, dan Pertanian
+  </template>
+  <template v-else>
+    High-Quality Cocopeat Block Supplier in East Java<br />
+    Organic Growing Media for Hydroponics, Nurseries, and Farming
+  </template>
 </h1>
 <p class="hero__sub">
-  Kusuma Agro Farm adalah produsen dan supplier <strong>cocopeat block</strong> terpercaya di Madiun, Jawa Timur. Menyediakan media tanam organik dari sabut kelapa pilihan, ramah lingkungan, daya serap tinggi, cocok untuk <strong>hidroponik</strong>, <strong>nursery</strong>, dan pertanian modern. <a href="#produk">Lihat produk cocopeat &rarr;</a> atau <a href="#kontak">hubungi kami</a> untuk pemesanan ke seluruh Indonesia.
+  <template v-if="lang==='id'">
+    Kusuma Agro Farm adalah produsen dan supplier <strong>cocopeat block</strong> terpercaya di Madiun, Jawa Timur. Menyediakan media tanam organik dari sabut kelapa pilihan, ramah lingkungan, daya serap tinggi, cocok untuk <strong>hidroponik</strong>, <strong>nursery</strong>, dan pertanian modern. <a href="#produk">Lihat produk cocopeat &rarr;</a> atau <a href="#kontak">hubungi kami</a> untuk pemesanan ke seluruh Indonesia.
+  </template>
+  <template v-else>
+    Kusuma Agro Farm is a trusted <strong>cocopeat block</strong> producer and supplier in Madiun, East Java. We provide organic growing media from selected coconut husks, eco-friendly, high water retention, ideal for <strong>hydroponics</strong>, <strong>nurseries</strong>, and modern agriculture. <a href="#produk">See cocopeat products &rarr;</a> or <a href="#kontak">contact us</a> to order across Indonesia.
+  </template>
 </p>
         <div class="hero__cta">
           <a
@@ -257,43 +431,22 @@ function handleSubmit() {
           <div class="about__badge-float">
             <span>🌿</span>
             <div>
-              <strong>Berdiri Sejak 2018</strong>
-              <p>Produsen Lokal Terpercaya</p>
+              <strong>{{ aboutBadge.title[lang] }}</strong>
+              <p>{{ aboutBadge.desc[lang] }}</p>
             </div>
           </div>
         </div>
         <div class="about__content">
-          <div class="section-label">Tentang Kami</div>
-          <h2 class="section-title">
-            Mitra Pertanian Anda yang <em>Dapat Dipercaya</em>
-          </h2>
-          <p>
-  <strong>Kusuma Agro Farm</strong> adalah produsen dan supplier <strong>cocopeat block</strong> UMKM berbasis di <strong>Madiun, Jawa Timur</strong>.
-  Kami berkomitmen menghadirkan <strong>media tanam cocopeat</strong> berkualitas tinggi dari sabut kelapa pilihan untuk petani, pelaku <strong>hidroponik</strong>, <strong>nursery</strong>, dan agribisnis di seluruh Indonesia.
-  <a href="#produk">Lihat produk cocopeat &rarr;</a>
-</p>
-          <p>
-            Kami memahami kebutuhan petani, pelaku <strong>hidroponik</strong>,
-            nursery, dan distributor di Jawa Timur, Jawa Tengah, Jawa Barat, dan
-            seluruh nusantara — sehingga setiap produk kami dirancang dengan
-            standar kualitas ketat: kadar EC rendah, bebas gulma, daya serap
-            optimal, dan konsistensi di setiap pengiriman.
-          </p>
-          <p>
-            Sejak 2018, kami telah melayani berbagai pelanggan dari skala
-            rumahan hingga ekspor. Kepercayaan Anda adalah prioritas utama kami.
-          </p>
+          <div class="section-label">{{ aboutSection.label[lang] }}</div>
+<h2 class="section-title">{{ aboutSection.title[lang] }}</h2>
+<p v-html="aboutSection.p1[lang]"></p>
+<p v-html="aboutSection.p2[lang]"></p>
+<p v-html="aboutSection.p3[lang]"></p>
           <div class="about__highlights">
-            <div class="about__highlight">
-              <span>✅</span> Proses produksi higienis & terkontrol
-            </div>
-            <div class="about__highlight">
-              <span>✅</span> Melayani seluruh wilayah Jawa Timur & Indonesia
-            </div>
-            <div class="about__highlight">
-              <span>✅</span> Ekspor ke mancanegara tersedia
-            </div>
-          </div>
+  <div class="about__highlight" v-for="(h, i) in aboutHighlights" :key="i">
+    <span>✅</span> {{ h[lang] }}
+  </div>
+</div>
         </div>
       </div>
     </section>
@@ -302,13 +455,9 @@ function handleSubmit() {
     <section id="produk" class="section section--green-light">
       <div class="container">
         <div class="section-header section-header--center">
-          <div class="section-label">Produk Kami</div>
-          <h2 class="section-title">Cocopeat Block <em>Unggulan</em></h2>
-          <p class="section-desc">
-            Kami menyediakan berbagai varian
-            <strong>cocopeat block</strong> berkualitas untuk kebutuhan
-            pertanian, hidroponik, nursery, dan distribusi dalam berbagai skala.
-          </p>
+          <div class="section-label">{{ productSection.label[lang] }}</div>
+          <h2 class="section-title" v-html="productSection.title[lang]"></h2>
+          <p class="section-desc">{{ productSection.desc[lang] }}</p>
         </div>
 
         <div class="product-grid">
@@ -323,12 +472,16 @@ function handleSubmit() {
             </div>
 
             <div class="product-content">
-              <h3 class="product-content__title">{{ p.title }}</h3>
-              <p class="product-content__desc">{{ p.desc }}</p>
+              <h3 class="product-content__title" style="margin-bottom:0;">
+  {{ p.title[lang] }}<span v-if="p.label[lang]" class="product-content__label product-content__label--soon" style="font-size:0.95em; margin-left:8px; white-space:nowrap;">({{ p.label[lang] }})</span>
+</h3>
+              <p class="product-content__desc">{{ p.desc[lang] }}</p>
+
+              <div v-if="p.price[lang]" class="product-content__price product-content__price--big">{{ p.price[lang] }}</div>
 
               <div class="product-content__tags">
                 <span
-                  v-for="tag in p.tags"
+                  v-for="tag in p.tags[lang]"
                   :key="tag"
                   class="product-content__tag"
                 >
@@ -337,12 +490,13 @@ function handleSubmit() {
               </div>
 
               <a
+                v-if="!p.price[lang]"
                 href="https://wa.me/6281249851168?text=Halo%20Kusuma%20Agro%20Farm%2C%20saya%20ingin%20tanya%20harga%20produk%20cocopeat%20block.%20Mohon%20info%20detailnya.%20Terima%20kasih!"
                 class="btn btn--sm btn--primary product-content__cta"
                 target="_blank"
                 rel="noopener"
               >
-                Tanya Harga
+                {{ productSection.cta[lang] }}
               </a>
             </div>
           </article>
@@ -360,37 +514,19 @@ function handleSubmit() {
             loading="lazy"
           />
         </div>
-
-        <div class="detail-content">
-          <span class="eyebrow">Detail Produk</span>
-          <h2>Tekstur Cocopeat Berkualitas dan Siap Pakai</h2>
-          <p>
-            Cocopeat kami memiliki tekstur yang baik, daya serap air tinggi, dan
-            cocok digunakan sebagai media tanam untuk berbagai jenis tanaman.
-            Material diproses dengan perhatian pada kualitas agar hasilnya
-            konsisten dan siap memenuhi kebutuhan pasar retail maupun
-            distribusi.
-          </p>
+          <div class="detail-content">
+          <span class="eyebrow">{{ detailSection.label[lang] }}</span>
+          <h2 v-html="detailSection.title[lang]"></h2>
+          <p>{{ detailSection.desc[lang] }}</p>
 
           <div class="detail-features">
-            <div class="feature-item">
-              <h4>Daya Serap Tinggi</h4>
-              <p>Membantu menjaga kelembapan media tanam lebih optimal.</p>
-            </div>
-            <div class="feature-item">
-              <h4>Ramah Lingkungan</h4>
-              <p>
-                Terbuat dari bahan alami yang mendukung pertanian berkelanjutan.
-              </p>
-            </div>
-            <div class="feature-item">
-              <h4>Serbaguna</h4>
-              <p>
-                Cocok untuk nursery, hortikultura, hidroponik, dan pembibitan.
-              </p>
+              <div class="feature-item" v-for="(f, i) in detailFeatures" :key="i">
+                <h4>{{ f.title[lang] }}</h4>
+                <p>{{ f.desc[lang] }}</p>
+              </div>
+              <p>{{ detailSection.suitable[lang] }}</p>
             </div>
           </div>
-        </div>
       </div>
     </section>
 
@@ -398,9 +534,13 @@ function handleSubmit() {
     <section id="keunggulan" class="section section--light">
       <div class="container">
         <div class="section-header">
-          <div class="section-label">Keunggulan Produk</div>
+          <div class="section-label">
+            <template v-if="lang==='id'">Keunggulan Produk</template>
+            <template v-else>Product Advantages</template>
+          </div>
           <h2 class="section-title">
-            Kenapa Cocopeat Block <em>Lebih Unggul?</em>
+            <template v-if="lang==='id'">Kenapa Cocopeat Block <em>Lebih Unggul?</em></template>
+            <template v-else>Why is Cocopeat Block <em>Better?</em></template>
           </h2>
           <p class="section-desc">
             Dibandingkan media tanam konvensional,
@@ -412,8 +552,8 @@ function handleSubmit() {
         <div class="advantage-grid">
           <div v-for="(a, i) in advantages" :key="i" class="advantage-card">
             <div class="advantage-card__icon">{{ a.icon }}</div>
-            <h3 class="advantage-card__title">{{ a.title }}</h3>
-            <p class="advantage-card__desc">{{ a.desc }}</p>
+            <h3 class="advantage-card__title">{{ a.title[lang] }}</h3>
+            <p class="advantage-card__desc">{{ a.desc[lang] }}</p>
           </div>
         </div>
       </div>
@@ -424,30 +564,34 @@ function handleSubmit() {
       <div class="container">
         <div class="section-header">
           <div class="section-label section-label--light">
-            Mengapa Memilih Kami
-          </div>
-          <h2 class="section-title section-title--light">
-            Kami Hadir untuk <em>Mendukung Pertanian Anda</em>
-          </h2>
+          <template v-if="lang==='id'">Mengapa Memilih Kami</template>
+          <template v-else>Why Choose Us</template>
+        </div>
+        <h2 class="section-title section-title--light">
+          <template v-if="lang==='id'">Kami Hadir untuk <em>Mendukung Pertanian Anda</em></template>
+          <template v-else>We Are Here to <em>Support Your Agriculture</em></template>
+        </h2>
         </div>
         <div class="reason-grid">
           <div v-for="(r, i) in reasons" :key="i" class="reason-card">
             <div class="reason-card__icon">{{ r.icon }}</div>
-            <h3 class="reason-card__title">{{ r.title }}</h3>
-            <p class="reason-card__desc">{{ r.desc }}</p>
+            <h3 class="reason-card__title">{{ r.title[lang] }}</h3>
+            <p class="reason-card__desc">{{ r.desc[lang] }}</p>
           </div>
         </div>
         <div class="cta-banner">
           <p>
-            Siap meningkatkan hasil pertanian Anda bersama Kusuma Agro Farm?
-          </p>
-          <a
-            href="#kontak"
-            class="btn btn--white"
-            @click="smoothScroll($event, '#kontak')"
-          >
-            💬 Konsultasi Gratis Sekarang
-          </a>
+  <template v-if="lang==='id'">Siap meningkatkan hasil pertanian Anda bersama Kusuma Agro Farm?</template>
+  <template v-else>Ready to boost your harvest with Kusuma Agro Farm?</template>
+</p>
+<a
+  href="#kontak"
+  class="btn btn--white"
+  @click="smoothScroll($event, '#kontak')"
+>
+  <template v-if="lang==='id'">💬 Konsultasi Gratis Sekarang</template>
+  <template v-else>💬 Free Consultation Now</template>
+</a>
         </div>
       </div>
     </section>
@@ -460,20 +604,23 @@ function handleSubmit() {
       <div class="container">
         <div class="section-header">
           <div class="section-label">Jangkauan Layanan</div>
-          <h2 class="section-title">Kirim ke <em>Seluruh Indonesia</em></h2>
-          <p class="section-desc">
-            Dari Madiun, Jawa Timur — kami melayani pengiriman cocopeat block ke
-            berbagai kota dan wilayah di Indonesia.
-          </p>
+          <h2 class="section-title">
+  <template v-if="lang==='id'">Kirim ke <em>Seluruh Indonesia</em></template>
+  <template v-else>Shipping <em>Across Indonesia</em></template>
+</h2>
+<p class="section-desc">
+  <template v-if="lang==='id'">Dari Madiun, Jawa Timur — kami melayani pengiriman cocopeat block ke berbagai kota dan wilayah di Indonesia.</template>
+  <template v-else>From Madiun, East Java — we deliver cocopeat blocks to cities and regions across Indonesia.</template>
+</p>
         </div>
         <div class="area-cloud">
-          <span v-for="area in serviceAreas" :key="area" class="area-tag">
+          <span v-for="area in serviceAreas[lang]" :key="area" class="area-tag">
             📍 {{ area }}
           </span>
         </div>
         <p class="area-note">
-          Tidak ada kota Anda di daftar? Kami tetap bisa kirim! Hubungi kami
-          untuk konfirmasi pengiriman ke wilayah Anda.
+          <template v-if="lang==='id'">Tidak ada kota Anda di daftar? Kami tetap bisa kirim! Hubungi kami untuk konfirmasi pengiriman ke wilayah Anda.</template>
+          <template v-else>Your city not listed? We can still deliver! Contact us to confirm shipping to your area.</template>
         </p>
       </div>
     </section>
@@ -482,69 +629,17 @@ function handleSubmit() {
     <section class="section section--light" aria-label="FAQ Cocopeat Block">
       <div class="container">
         <div class="section-header">
-          <div class="section-label">FAQ</div>
-          <h2 class="section-title">
-            Pertanyaan yang <em>Sering Ditanyakan</em>
-          </h2>
+          <div class="section-label">
+  <div class="section-label">{{ lang === 'id' ? 'FAQ' : 'FAQ' }}</div>
+<h2 class="section-title">{{ lang === 'id' ? 'Pertanyaan yang ' : 'Frequently ' }}<em>{{ lang === 'id' ? 'Sering Ditanyakan' : 'Asked Questions' }}</em></h2>
         </div>
         <div class="faq-list">
-          <details class="faq-item">
-            <summary class="faq-q">
-              Apa itu cocopeat block dan apa kegunaannya?
-            </summary>
-            <p class="faq-a">
-              Cocopeat block adalah media tanam padat berbahan sabut kelapa yang
-              dipadatkan. Sangat cocok digunakan sebagai media tanam hidroponik,
-              persemaian bibit, campuran tanah pot, dan pertanian hortikultura
-              karena memiliki daya serap air tinggi dan bersifat ramah
-              lingkungan.
-            </p>
-          </details>
-          <details class="faq-item">
-            <summary class="faq-q">
-              Apakah cocopeat block Kusuma Agro Farm aman untuk semua jenis
-              tanaman?
-            </summary>
-            <p class="faq-a">
-              Ya. Produk kami memiliki kadar EC rendah, pH netral (5.5–6.5), dan
-              bebas gulma serta patogen, sehingga aman dan ideal untuk semua
-              jenis tanaman — dari sayuran, buah-buahan, hingga tanaman hias dan
-              bunga.
-            </p>
-          </details>
-          <details class="faq-item">
-            <summary class="faq-q">
-              Bagaimana cara menggunakan cocopeat block?
-            </summary>
-            <p class="faq-a">
-              Sangat mudah: rendam blok cocopeat dalam air selama 10–15 menit,
-              kemudian hancurkan dan aduk hingga merata. Cocopeat siap digunakan
-              langsung sebagai media tanam atau dicampur dengan sekam, perlite,
-              atau kompos sesuai kebutuhan.
-            </p>
-          </details>
-          <details class="faq-item">
-            <summary class="faq-q">
-              Apakah tersedia pengiriman ke luar Jawa Timur?
-            </summary>
-            <p class="faq-a">
-              Ya, kami melayani pengiriman ke seluruh Indonesia — Jawa,
-              Sumatera, Kalimantan, Sulawesi, Bali, NTT, Papua, dan wilayah
-              lainnya. Hubungi kami untuk informasi ongkir ke lokasi Anda.
-            </p>
-          </details>
-          <details class="faq-item">
-            <summary class="faq-q">
-              Berapa minimum pemesanan cocopeat block?
-            </summary>
-            <p class="faq-a">
-              Kami melayani pemesanan dari kuantitas kecil untuk kebutuhan
-              rumahan hingga kontainer penuh untuk ekspor dan distributor besar.
-              Tidak ada minimum order yang ketat — hubungi kami untuk diskusi
-              lebih lanjut.
-            </p>
-          </details>
-        </div>
+  <details class="faq-item" v-for="(item, i) in faqList" :key="i">
+    <summary class="faq-q">{{ item.q[lang] }}</summary>
+    <p class="faq-a">{{ item.a[lang] }}</p>
+  </details>
+</div>
+      </div>
       </div>
     </section>
 
@@ -552,12 +647,18 @@ function handleSubmit() {
     <section id="kontak" class="section section--light">
       <div class="container contact">
         <div class="contact__info">
-          <div class="section-label">Hubungi Kami</div>
-          <h2 class="section-title">Kami Siap <em>Membantu Anda</em></h2>
-          <p>
-            Konsultasikan kebutuhan media tanam Anda. Tim kami akan merespons
-            dalam 1×24 jam.
-          </p>
+          <div class="section-label">
+  <template v-if="lang==='id'">Hubungi Kami</template>
+  <template v-else>Contact Us</template>
+</div>
+<h2 class="section-title">
+  <template v-if="lang==='id'">Kami Siap <em>Membantu Anda</em></template>
+  <template v-else>We Are <em>Ready to Help You</em></template>
+</h2>
+<p>
+  <template v-if="lang==='id'">Konsultasikan kebutuhan media tanam Anda. Tim kami akan merespons dalam 1×24 jam.</template>
+  <template v-else>Consult your growing media needs. Our team will respond within 24 hours.</template>
+</p>
 
           <div class="contact__details">
             <div class="contact__item">
@@ -654,16 +755,16 @@ function handleSubmit() {
           pengiriman ke seluruh Indonesia.
         </p>
         <nav class="footer__links">
-          <a
-            v-for="link in navLinks"
-            :key="link.href"
-            :href="link.href"
-            v-bind="link.external ? { target: '_blank', rel: 'noopener', 'aria-label': link.label } : {}"
-            v-on="!link.external ? { click: (e) => smoothScroll(e, link.href) } : {}"
-          >
-            {{ link.label }}
-          </a>
-        </nav>
+  <a
+    v-for="link in navLinks"
+    :key="link.href"
+    :href="link.href"
+    v-bind="link.external ? { target: '_blank', rel: 'noopener', 'aria-label': link.label[lang] } : {}"
+    v-on="!link.external ? { click: (e) => smoothScroll(e, link.href) } : {}"
+  >
+    <span v-if="link.icon" style="display:inline-flex;align-items:center;"><img :src="link.icon" alt="Shopee" style="height:1em;width:1em;vertical-align:middle;margin-right:4px;display:inline;" />{{ link.label[lang] }}</span><span v-else>{{ link.label[lang] }}</span>
+  </a>
+</nav>
         <p class="footer__copy">
           © {{ new Date().getFullYear() }} Kusuma Agro Farm. Hak Cipta
           Dilindungi.
@@ -1792,4 +1893,13 @@ em {
     display: none;
   }
 }
+.product-content__price--big {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--green-mid);
+  margin: 12px 0 8px 0;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
 </style>
