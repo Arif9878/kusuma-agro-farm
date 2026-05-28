@@ -49,8 +49,8 @@ const productSection = {
   label: { id: "Produk Kami", en: "Our Products" },
   title: { id: "Cocopeat Block <em>Unggulan</em>", en: "Featured <em>Cocopeat Block</em>" },
   desc: {
-    id: "Kami menyediakan berbagai varian <strong>cocopeat block</strong> berkualitas untuk kebutuhan pertanian, hidroponik, nursery, dan distribusi dalam berbagai skala.",
-    en: "We provide a variety of high-quality <strong>cocopeat blocks</strong> for agriculture, hydroponics, nurseries, and distribution at various scales."
+    id: "Kami menyediakan berbagai varian cocopeat block berkualitas untuk kebutuhan pertanian, hidroponik, nursery, dan distribusi dalam berbagai skala.",
+    en: "We provide a variety of high-quality cocopeat blocks for agriculture, hydroponics, nurseries, and distribution at various scales."
   },
   cta: { id: "Tanya Harga", en: "Ask Price" }
 };
@@ -163,6 +163,7 @@ const products = [
     tags: {id: ["Hidroponik", "Persemaian", "Hortikultura"], en: ["Hydroponics", "Seedling", "Horticulture"]},
     icon: "🌿",
     price: {id: "IDR 55.950/blok", en: "IDR 55,950/block"},
+    priceButton: {id: "Beli", en: "Buy"},
     label: {id: "", en: ""}
   },
   {
@@ -175,6 +176,7 @@ const products = [
     tags: {id: ["Rumahan", "Nursery", "Pot & Polybag"], en: ["Home", "Nursery", "Pot & Polybag"]},
     icon: "🪴",
     price: {id: "", en: ""},
+    priceButton: {id: "Beli", en: "Buy"},
     label: {id: "Segera Tersedia", en: "Ready Soon"}
   },
   {
@@ -187,6 +189,7 @@ const products = [
     tags: {id: ["Ekspor", "Distributor", "Skala Besar"], en: ["Export", "Distributor", "Large Scale"]},
     icon: "📦",
     price: {id: "", en: ""},
+    priceButton: {id: "Beli", en: "Buy"},
     label: {id: "", en: ""},
   },
 ];
@@ -476,9 +479,7 @@ function handleSubmit() {
   {{ p.title[lang] }}<span v-if="p.label[lang]" class="product-content__label product-content__label--soon" style="font-size:0.95em; margin-left:8px; white-space:nowrap;">({{ p.label[lang] }})</span>
 </h3>
               <p class="product-content__desc">{{ p.desc[lang] }}</p>
-
               <div v-if="p.price[lang]" class="product-content__price product-content__price--big">{{ p.price[lang] }}</div>
-
               <div class="product-content__tags">
                 <span
                   v-for="tag in p.tags[lang]"
@@ -488,6 +489,15 @@ function handleSubmit() {
                   {{ tag }}
                 </span>
               </div>
+              <a
+                v-if="p.price[lang]"
+                :href="`https://wa.me/6281249851168?text=Hei%20saya%20mau%20beli%20produk%20${encodeURIComponent(p.title[lang])}%3A%20Rp%20${encodeURIComponent(p.price[lang])}`"
+                class="btn btn--sm btn--primary product-content__cta"
+                target="_blank"
+                rel="noopener"
+              >
+                {{ p.priceButton[lang] }}
+              </a>
 
               <a
                 v-if="!p.price[lang]"
