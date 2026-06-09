@@ -154,44 +154,80 @@ const faqList = [
 // ── Produk ───────────────────────────────────────────────────────────────────
 const products = [
   {
-    title: {id: "Cocopeat Block 5 kg", en: "Cocopeat Block 5 kg"},
+    title: { id: "Cocopeat Block 5 kg", en: "Cocopeat Block 5 kg" },
     image: "/products/cocopeat-block-5kg.webp",
     desc: {
-      id: "Blok cocopeat padat 5 kg, cocok untuk media tanam, persemaian, dan hortikultura.",
-      en: "5 kg solid cocopeat block, ideal for growing media, seedling, and horticulture."
+      id: "Blok cocopeat padat 5 kg, cocok untuk media tanam, persemaian, hidroponik, dan hortikultura.",
+      en: "5 kg solid cocopeat block, ideal for growing media, seedling, hydroponics, and horticulture."
     },
-    tags: {id: ["Hidroponik", "Persemaian", "Hortikultura"], en: ["Hydroponics", "Seedling", "Horticulture"]},
+    tags: {
+      id: ["High EC", "Low EC", "Hidroponik", "Hortikultura"],
+      en: ["High EC", "Low EC", "Hydroponics", "Horticulture"]
+    },
     icon: "🌿",
-    price: {id: "IDR 55.950/blok", en: "IDR 55,950/block"},
-    priceButton: {id: "Beli", en: "Buy"},
-    label: {id: "", en: ""}
+    variants: [
+      {
+        name: { id: "Varian B / High EC", en: "Variant B / High EC" },
+        price: { id: "IDR 38.000/blok", en: "IDR 38,000/block" }
+      },
+      {
+        name: { id: "Varian Low EC", en: "Low EC Variant" },
+        price: { id: "IDR 48.000/blok", en: "IDR 48,000/block" }
+      }
+    ],
+    price: {
+      id: "Mulai IDR 38.000/blok",
+      en: "From IDR 38,000/block"
+    },
+    priceNote: {
+      id: "Pembelian di atas 100 pcs bisa nego harga.",
+      en: "Price is negotiable for purchases above 100 pcs."
+    },
+    priceButton: { id: "Beli", en: "Buy" },
+    label: { id: "", en: "" }
   },
   {
-    title: {id: "Cocopeat Block 650g", en: "Cocopeat Block 650g"},
+    title: { id: "Cocopeat Block 650g", en: "Cocopeat Block 650g" },
     image: "/products/cocopeat-block-650.webp",
     desc: {
       id: "Cocopeat block 650g, ukuran praktis untuk rumah tangga dan nursery kecil.",
       en: "650g cocopeat block, practical size for home use and small nurseries."
     },
-    tags: {id: ["Rumahan", "Nursery", "Pot & Polybag"], en: ["Home", "Nursery", "Pot & Polybag"]},
+    tags: {
+      id: ["Rumahan", "Nursery", "Pot & Polybag"],
+      en: ["Home", "Nursery", "Pot & Polybag"]
+    },
     icon: "🪴",
-    price: {id: "", en: ""},
-    priceButton: {id: "Beli", en: "Buy"},
-    label: {id: "Segera Tersedia", en: "Ready Soon"}
+    variants: [],
+    price: { id: "", en: "" },
+    priceNote: { id: "", en: "" },
+    priceButton: { id: "Beli", en: "Buy" },
+    label: { id: "Segera Tersedia", en: "Ready Soon" }
   },
   {
-    title: {id: "Cocopeat Block Custom", en: "Cocopeat Block Custom"},
+    title: { id: "Cocopeat Block Custom", en: "Cocopeat Block Custom" },
     image: "/products/cocopeat-block-custom.webp",
     desc: {
-      id: "Blok cocopeat custom, tersedia berbagai ukuran sesuai kebutuhan Anda.",
-      en: "Custom cocopeat block, available in various sizes to suit your needs."
+      id: "Blok cocopeat custom, tersedia berbagai ukuran sesuai kebutuhan distributor, ekspor, dan pembelian skala besar.",
+      en: "Custom cocopeat block, available in various sizes for distributors, export, and large-scale purchases."
     },
-    tags: {id: ["Ekspor", "Distributor", "Skala Besar"], en: ["Export", "Distributor", "Large Scale"]},
+    tags: {
+      id: ["Ekspor", "Distributor", "Skala Besar"],
+      en: ["Export", "Distributor", "Large Scale"]
+    },
     icon: "📦",
-    price: {id: "", en: ""},
-    priceButton: {id: "Beli", en: "Buy"},
-    label: {id: "", en: ""},
-  },
+    variants: [],
+    price: {
+      id: "Harga menyesuaikan kebutuhan",
+      en: "Price based on requirements"
+    },
+    priceNote: {
+      id: "Pembelian di atas 100 pcs bisa nego harga.",
+      en: "Price is negotiable for purchases above 100 pcs."
+    },
+    priceButton: { id: "Tanya Harga", en: "Ask Price" },
+    label: { id: "", en: "" }
+  }
 ];
 
 // ── Keunggulan ───────────────────────────────────────────────────────────────
@@ -313,6 +349,52 @@ function handleSubmit() {
   form.value = { name: "", email: "", message: "" };
   setTimeout(() => (formSent.value = false), 5000);
 }
+
+const WHATSAPP_NUMBER = "6281249851168";
+
+const getCurrentLang = () => {
+  return typeof lang === "string" ? lang : lang.value;
+};
+
+const getProductWhatsAppUrl = (product) => {
+  const currentLang = getCurrentLang();
+  const title = product.title?.[currentLang] || product.title?.id || product.title?.en || "";
+  const price = product.price?.[currentLang] || "";
+  const priceNote = product.priceNote?.[currentLang] || "";
+  const variantsText = product.variants?.length
+    ? product.variants
+        .map((variant) => {
+          const variantName =
+            variant.name?.[currentLang] || variant.name?.id || variant.name?.en || "";
+          const variantPrice =
+            variant.price?.[currentLang] || variant.price?.id || variant.price?.en || "";
+          return `- ${variantName}: ${variantPrice}`;
+        })
+        .join("\n")
+    : "";
+
+  const message =
+    currentLang === "id"
+      ? [
+          `Halo Kusuma Agro Farm, saya ingin ${price ? "membeli" : "menanyakan harga"} produk ${title}.`,
+          price ? `Harga: ${price}` : "",
+          variantsText ? `Varian:\n${variantsText}` : "",
+          priceNote ? `Catatan: ${priceNote}` : "",
+          "Mohon info ketersediaan dan cara pemesanannya. Terima kasih."
+        ]
+          .filter(Boolean)
+          .join("\n\n")
+      : [
+          `Hello Kusuma Agro Farm, I would like to ${price ? "buy" : "ask the price for"} ${title}.`,
+          price ? `Price: ${price}` : "",
+          variantsText ? `Variants:\n${variantsText}` : "",
+          priceNote ? `Note: ${priceNote}` : "",
+          "Please share availability and ordering details. Thank you."
+        ]
+          .filter(Boolean)
+          .join("\n\n");
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+};
 </script>
 
 <template>
@@ -454,32 +536,47 @@ function handleSubmit() {
       </div>
     </section>
 
-    <!-- ════════════════════════ PRODUK ════════════════════════ -->
-    <section id="produk" class="section section--green-light">
-      <div class="container">
-        <div class="section-header section-header--center">
-          <div class="section-label">{{ productSection.label[lang] }}</div>
-          <h2 class="section-title" v-html="productSection.title[lang]"></h2>
-          <p class="section-desc">{{ productSection.desc[lang] }}</p>
-        </div>
+  <!-- ════════════════════════ PRODUK ════════════════════════ -->
+  <section id="produk" class="section section--green-light">
+    <div class="container">
+      <div class="section-header section-header--center">
+        <div class="section-label">{{ productSection.label[lang] }}</div>
+        <h2 class="section-title" v-html="productSection.title[lang]"></h2>
+        <p class="section-desc">{{ productSection.desc[lang] }}</p>
+      </div>
 
-        <div class="product-grid">
-          <article class="product-card" v-for="p in products" :key="p.title">
-            <div class="product-image-wrap">
-              <img
-                :src="p.image"
-                :alt="p.title"
-                class="product-image"
-                loading="lazy"
-              />
-            </div>
+      <div class="product-grid">
+        <article class="product-card" v-for="p in products" :key="p.title[lang]">
+          <div class="product-image-wrap">
+            <img
+              :src="p.image"
+              :alt="p.title[lang]"
+              class="product-image"
+              loading="lazy"
+            />
 
-            <div class="product-content">
-              <h3 class="product-content__title" style="margin-bottom:0;">
-  {{ p.title[lang] }}<span v-if="p.label[lang]" class="product-content__label product-content__label--soon" style="font-size:0.95em; margin-left:8px; white-space:nowrap;">({{ p.label[lang] }})</span>
-</h3>
-              <p class="product-content__desc">{{ p.desc[lang] }}</p>
-              <div v-if="p.price[lang]" class="product-content__price product-content__price--big">{{ p.price[lang] }}</div>
+            <span
+              v-if="p.label && p.label[lang]"
+              class="product-badge product-badge--soon"
+            >
+              {{ p.label[lang] }}
+            </span>
+          </div>
+
+          <div class="product-content">
+            <div class="product-content__main">
+              <div class="product-content__header">
+                <div class="product-content__icon">{{ p.icon }}</div>
+
+                <h3 class="product-content__title">
+                  {{ p.title[getCurrentLang()] }}
+                </h3>
+              </div>
+
+              <p class="product-content__desc">
+                {{ p.desc[lang] }}
+              </p>
+
               <div class="product-content__tags">
                 <span
                   v-for="tag in p.tags[lang]"
@@ -489,56 +586,90 @@ function handleSubmit() {
                   {{ tag }}
                 </span>
               </div>
-              <a
-                v-if="p.price[lang]"
-                :href="`https://wa.me/6281249851168?text=Hei%20saya%20mau%20beli%20produk%20${encodeURIComponent(p.title[lang])}%3A%20Rp%20${encodeURIComponent(p.price[lang])}`"
-                class="btn btn--sm btn--primary product-content__cta"
-                target="_blank"
-                rel="noopener"
-              >
-                {{ p.priceButton[lang] }}
-              </a>
-
-              <a
-                v-if="!p.price[lang]"
-                href="https://wa.me/6281249851168?text=Halo%20Kusuma%20Agro%20Farm%2C%20saya%20ingin%20tanya%20harga%20produk%20cocopeat%20block.%20Mohon%20info%20detailnya.%20Terima%20kasih!"
-                class="btn btn--sm btn--primary product-content__cta"
-                target="_blank"
-                rel="noopener"
-              >
-                {{ productSection.cta[lang] }}
-              </a>
             </div>
-          </article>
-        </div>
-      </div>
-    </section>
 
-    <section id="detail-produk" class="detail-section">
-      <div class="container detail-grid">
-        <div class="detail-image-wrap">
-          <img
-            src="/products/cocopeat-detail-texture.webp"
-            alt="Detail tekstur cocopeat Kusuma Agro Farm"
-            class="detail-image"
-            loading="lazy"
-          />
-        </div>
-          <div class="detail-content">
-          <span class="eyebrow">{{ detailSection.label[lang] }}</span>
-          <h2 v-html="detailSection.title[lang]"></h2>
-          <p>{{ detailSection.desc[lang] }}</p>
+            <div class="product-content__bottom">
+              <div
+                v-if="p.price && p.price[lang]"
+                class="product-price-box"
+              >
+                <span class="product-price-box__label">
+                  {{ lang === "id" ? "Harga" : "Price" }}
+                </span>
 
-          <div class="detail-features">
-              <div class="feature-item" v-for="(f, i) in detailFeatures" :key="i">
-                <h4>{{ f.title[lang] }}</h4>
-                <p>{{ f.desc[lang] }}</p>
+                <strong class="product-price-box__value">
+                  {{ p.price[lang] }}
+                </strong>
               </div>
-              <p>{{ detailSection.suitable[lang] }}</p>
+
+              <div
+                v-if="p.variants && p.variants.length"
+                class="product-content__variants"
+              >
+                <div
+                  v-for="variant in p.variants"
+                  :key="variant.name[lang]"
+                  class="product-content__variant"
+                >
+                  <span class="product-content__variant-name">
+                    {{ variant.name[lang] }}
+                  </span>
+
+                  <span class="product-content__variant-price">
+                    {{ variant.price[lang] }}
+                  </span>
+                </div>
+              </div>
+
+              <p
+                v-if="p.priceNote && p.priceNote[lang]"
+                class="product-content__price-note"
+              >
+                {{ p.priceNote[lang] }}
+              </p>
+
+              <a
+                :href="getProductWhatsAppUrl(p)"
+                class="btn btn--sm btn--primary product-content__cta"
+                target="_blank"
+                rel="noopener"
+              >
+                {{ p.price && p.price[lang] ? p.priceButton[lang] : productSection.cta[lang] }}
+              </a>
             </div>
           </div>
+        </article>
       </div>
-    </section>
+    </div>
+  </section>
+
+  <section id="detail-produk" class="detail-section">
+    <div class="container detail-grid">
+      <div class="detail-image-wrap">
+        <img
+          src="/products/cocopeat-detail-texture.webp"
+          alt="Detail tekstur cocopeat Kusuma Agro Farm"
+          class="detail-image"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="detail-content">
+        <span class="eyebrow">{{ detailSection.label[lang] }}</span>
+        <h2 v-html="detailSection.title[lang]"></h2>
+        <p>{{ detailSection.desc[lang] }}</p>
+
+        <div class="detail-features">
+          <div class="feature-item" v-for="(f, i) in detailFeatures" :key="i">
+            <h4>{{ f.title[lang] }}</h4>
+            <p>{{ f.desc[lang] }}</p>
+          </div>
+
+          <p>{{ detailSection.suitable[lang] }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
     <!-- ════════════════════════ KEUNGGULAN ════════════════════════ -->
     <section id="keunggulan" class="section section--light">
@@ -1276,30 +1407,33 @@ em {
 }
 
 .product-card {
-  background: var(--white);
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 14px 34px rgba(16, 24, 40, 0.08);
-  border: 1px solid rgba(64, 145, 108, 0.12);
+  position: relative;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid rgba(64, 145, 108, 0.14);
+  border-radius: 26px;
+  box-shadow: 0 14px 34px rgba(16, 24, 40, 0.08);
   transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    border-color 0.3s ease;
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease;
 }
 
 .product-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 22px 50px rgba(16, 24, 40, 0.12);
-  border-color: rgba(64, 145, 108, 0.28);
+  transform: translateY(-7px);
+  border-color: rgba(64, 145, 108, 0.32);
+  box-shadow: 0 24px 56px rgba(16, 24, 40, 0.13);
 }
 
 .product-image-wrap {
   position: relative;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  background: #eef4ec;
+  background:
+    radial-gradient(circle at top left, rgba(64, 145, 108, 0.16), transparent 34%),
+    #eef4ec;
 }
 
 .product-image {
@@ -1307,40 +1441,85 @@ em {
   height: 100%;
   display: block;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  transition: transform 0.45s ease;
 }
 
 .product-card:hover .product-image {
-  transform: scale(1.05);
+  transform: scale(1.055);
+}
+
+.product-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #31533d;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(64, 145, 108, 0.18);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 20px rgba(16, 24, 40, 0.08);
 }
 
 .product-content {
   display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 22px;
+}
+
+.product-content__main {
+  display: flex;
   flex-direction: column;
   flex: 1;
-  padding: 22px 22px 24px;
+}
+
+.product-content__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.product-content__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background: var(--green-light);
+  font-size: 1.1rem;
 }
 
 .product-content__title {
-  margin: 0 0 10px;
-  font-size: 1.2rem;
-  font-weight: 700;
+  margin: 2px 0 0;
+  font-size: 1.18rem;
+  font-weight: 800;
   line-height: 1.35;
   color: var(--green-dark);
+  letter-spacing: -0.01em;
 }
 
 .product-content__desc {
   margin: 0 0 16px;
-  font-size: 0.95rem;
-  line-height: 1.75;
+  font-size: 0.94rem;
+  line-height: 1.72;
   color: var(--text-mid);
-  flex: 1;
 }
 
 .product-content__tags {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin-top: auto;
   margin-bottom: 18px;
 }
 
@@ -1348,48 +1527,107 @@ em {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 30px;
-  padding: 6px 12px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  line-height: 1;
-  color: var(--green-soft);
-  background: var(--green-light);
-  border: 1px solid rgba(64, 145, 108, 0.12);
+  min-height: 29px;
+  padding: 6px 11px;
+  border: 1px solid rgba(64, 145, 108, 0.14);
   border-radius: 999px;
+  background: rgba(64, 145, 108, 0.09);
+  color: var(--green-soft);
+  font-size: 0.74rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.product-content__bottom {
+  display: grid;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(64, 145, 108, 0.12);
+}
+
+.product-price-box {
+  display: grid;
+  gap: 3px;
+}
+
+.product-price-box__label {
+  font-size: 0.76rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text-mid);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.product-price-box__value {
+  font-size: 1.18rem;
+  font-weight: 850;
+  line-height: 1.35;
+  color: var(--green-dark);
+}
+
+.product-content__variants {
+  display: grid;
+  gap: 8px;
+}
+
+.product-content__variant {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid rgba(64, 145, 108, 0.12);
+  border-radius: 14px;
+  background: #f8fbf7;
+}
+
+.product-content__variant-name {
+  color: #31533d;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.product-content__variant-price {
+  color: var(--green-dark);
+  font-size: 0.92rem;
+  font-weight: 850;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+.product-content__price-note {
+  position: relative;
+  margin: 0;
+  padding: 10px 12px 10px 34px;
+  border-radius: 14px;
+  background: rgba(255, 244, 214, 0.65);
+  color: #6d5520;
+  font-size: 0.86rem;
+  font-weight: 650;
+  line-height: 1.55;
+}
+
+.product-content__price-note::before {
+  content: "💬";
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  font-size: 0.9rem;
 }
 
 .product-content__cta {
-  margin-top: auto;
-  width: fit-content;
+  width: 100%;
+  justify-content: center;
+  margin-top: 2px;
 }
 
-@media (max-width: 1024px) {
-  .product-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+/* ── DETAIL PRODUCT GRID ──────────────────────────────────────────────────── */
+.detail-section {
+  position: relative;
+  overflow: hidden;
 }
-
-@media (max-width: 640px) {
-  .product-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .product-content {
-    padding: 18px 18px 20px;
-  }
-
-  .product-content__title {
-    font-size: 1.08rem;
-  }
-
-  .product-content__desc {
-    font-size: 0.9rem;
-  }
-}
-
-/* ── DETAIL PRODUCT GRID ─────────────────────────────────────────────────────────── */
 
 .detail-grid {
   display: grid;
@@ -1399,10 +1637,18 @@ em {
 }
 
 .detail-image-wrap {
+  position: relative;
   overflow: hidden;
   border-radius: 28px;
   background: #eef4ec;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+}
+
+.detail-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 
 .detail-content p {
@@ -1434,6 +1680,13 @@ em {
   color: #627166;
 }
 
+/* ── RESPONSIVE ───────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 960px) {
   .product-grid,
   .detail-grid {
@@ -1443,6 +1696,35 @@ em {
   .section-header h2,
   .detail-content h2 {
     font-size: 30px;
+  }
+}
+
+@media (max-width: 640px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .product-content {
+    padding: 18px;
+  }
+
+  .product-content__title {
+    font-size: 1.08rem;
+  }
+
+  .product-content__desc {
+    font-size: 0.9rem;
+  }
+
+  .product-content__variant {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .product-content__variant-price {
+    white-space: normal;
   }
 }
 
@@ -1904,7 +2186,7 @@ em {
   }
 }
 .product-content__price--big {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   color: var(--green-mid);
   margin: 12px 0 8px 0;
