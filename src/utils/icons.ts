@@ -1,0 +1,30 @@
+import {
+  Sprout,
+  Package,
+  Boxes,
+  Leaf,
+  Recycle,
+  Droplets,
+  Zap,
+  ShieldCheck,
+  Trophy,
+  HandCoins,
+  Handshake,
+  Wheat,
+  type LucideIcon,
+} from '@lucide/vue'
+
+export const iconMap: Record<string, LucideIcon> = {
+  sprout: Sprout,
+  package: Package,
+  boxes: Boxes,
+  leaf: Leaf,
+  recycle: Recycle,
+  droplets: Droplets,
+  zap: Zap,
+  shield: ShieldCheck,
+  trophy: Trophy,
+  coins: HandCoins,
+  handshake: Handshake,
+  wheat: Wheat,
+}
